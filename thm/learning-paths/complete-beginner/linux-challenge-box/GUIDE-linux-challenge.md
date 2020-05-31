@@ -236,9 +236,11 @@ Flag26: 4bceb76f490b24ed577d704c24d6955d
 
 #### Q8) Flag27, owned by root.
 
-Tried: sudo -l to find sudoers (alice comes close, but can't do anything :( )
-Tried: alice $ chown/chmod /home/flag27
+```bash
+sudo -l
+sudo cat /home/flag27
 
+Flag27: 6fc0c805702baebb0ecc01ae9e5a0db5
 
 #### Q9) Whats the linux kernal version?
 
@@ -253,9 +255,20 @@ Answer: 4.4.0-1075-aws
     1. remove all the spaces in the file
     2. remove all new line spaces.
     3. split by comma and get the last element in the split
+    
+```bash
+find / -iname *file29* 2>/dev/null
+ls -al /home/garry/file29               # find owner & group
+su garry
 
-Answer:
+# Method 1) Vim
+vim file29
+:%s/ //g
+:%s/\n//g
+:%s/,/,\r/g                         # \r = Return Carriage rather than '\n' for newline
+```
 
+Answer: fastidiisuscipitmeaei
 
 ## 5) SQL, FTP, Groups, and RDP
 
