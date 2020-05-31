@@ -85,8 +85,7 @@ Flag12: 01687f0c5e63382f1c9cc783ad44ff7f
 
 ```bash
 find / -iname *flag13*
-cd /home/bob/flag13/
-vimdiff script1 script2
+vimdiff /home/bob/flag13/script{1,2}
 ```
 
 Flag13: 3383f3771ba86b1ed9ab7fbf8abab531
@@ -140,8 +139,16 @@ Flag18: c6522bb26600d30254549b6574d2cef2
 
 #### Q9) Read the 2345th line of the file that contains flag19.
 ```bash
-head -n 2345 flag19 | tail -n 1
+find / -iname flag19 2>/dev/null
+head -n 2345 /home/alice/flag19 | tail -n 1
+# OR
+sed -n 2345p /home/alice/flag19
 ```
+
+sed | Description |
+----|-------------|
+-n  | --quiet, --silent: suppress automatic printing of pattern space (will print the rest of the document!) |
+p   | Print the current pattern space |
 
 Flag19: 490e69bd1bf3fc736cce9ff300653a3b
 
@@ -255,7 +262,7 @@ Answer: 4.4.0-1075-aws
     1. remove all the spaces in the file
     2. remove all new line spaces.
     3. split by comma and get the last element in the split
-    
+
 ```bash
 find / -iname *file29* 2>/dev/null
 ls -al /home/garry/file29               # find owner & group
@@ -266,11 +273,81 @@ vim file29
 :%s/ //g
 :%s/\n//g
 :%s/,/,\r/g                         # \r = Return Carriage rather than '\n' for newline
+
+# Method 2) tr'anslate'
+cat /home/alice/flag29 | tr -d ' ''\n''.' | tr ',' '\n' | tail -n 1; echo
 ```
+
+Note: Used tr -d '.' because the key doesn't include the '.'.cat /
+
+Prgm | Flag          | Description |
+-----|---------------|-------------|
+tr   | -d'elete'     | dels        |
+tr   | 'set1' 'set2' | replaces chars |
 
 Answer: fastidiisuscipitmeaei
 
 ## 5) SQL, FTP, Groups, and RDP
+
+## Q1) Curl to find flag 30
+
+```bash
+curl localhost
+```
+
+Flag30: fe74bb12fe03c5d8dfc245bdd1eae13f
+
+## Q2) Flag 31 is a MySQL database name.
+
+MySQL username: root
+
+MySQL password: hello
+
+```bash
+mysql -u root -p
+password:
+show databases;
+```
+
+Flag31: 2fb1cab13bf5f4d61de3555430c917f4
+
+## Q3) Bonus! Get data out of the table from the database found above.
+
+```bash
+use database_2fb1cab13bf5f4d61de3555430c917f4;
+show tables;    # 'flags'
+select * from flags;
+exit;
+```
+
+Flag: ee5954ee1d4d94d61c2f823d7b9d733c
+
+## Q4) Using SCP, FileZilla or another FTP client download flag32.mp3 to reveal flag 32.
+
+```bash
+
+```
+
+## Q5)
+
+
+## Q6)
+
+
+## Q7)
+
+
+## Q8)
+
+
+## Q9)
+
+
+
+
+
+
+
 
 
 
