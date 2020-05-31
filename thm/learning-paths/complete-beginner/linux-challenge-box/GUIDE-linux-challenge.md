@@ -30,7 +30,7 @@ Q# | Question | How-to | Answer |
 9  | Hosts file for flag9 | cat /etc/hosts | dcf50ad844f9fe06339041ccc0d6e280 |
 10 | Find other users on system for flag10 | cat /etc/passwd | 5e23deecfe3a7292970ee48ff1b6d00c |
 
-### Notes
+##### Notes
 
 **cron** is the name of tool, **crontab** is the *file* that lists the jobs that **cron** executes --and those jobs are called, **cronjobs**.  // Note: file locations vary by OS.
 
@@ -40,7 +40,7 @@ the **hosts** file is an OS file that **maps hostnames to IP addresses** in plai
 
 tool                     | description   |
 -------------------------|---------------|
-grep **\\b**             | stands for *boundary* ~= beginning of a word.  Can use either double backslash or '\b'. |
+grep **\\\\b**           | stands for *boundary* ~= beginning of a word.  Can use either double backslash or '\b'. |
 tar -x, --extract, --get | extract files from an archive        |
 tar -v, --verbose        | verbosely list files processed       |
 tar -f, --file ARCHIVE   | use archive file or device ARCHIVE   |
@@ -51,7 +51,7 @@ ps -x                    | show unattached terminal processes   |
 
 ## 3) Linux Functionality
 
-###### Init access (given)
+### Init access (given)
 
 Username: alice
 
@@ -73,7 +73,7 @@ Flag11: b4ba05d85801f62c4c0d05d3a76432e0
 
 #### Q2) Flag12 is located where MOTD's are usually found on Ubuntu.
 
-***MOTD (Message of the Day)***
+**MOTD (Message of the Day)**
 
 ```bash
 cat /etc/update-motd.d/* | grep -i flag
@@ -160,31 +160,101 @@ Each new 6-bit 'word' is mapped to a base64 scheme (table).
 
 Flag20: 02b9aab8a29970db08ec77ae425f6e68
 
-#### Q2)
+#### Q2) Inspect the flag21.php file.  Find the flag.
+
+```bash
+find / -iname flag21.php 2>/dev/null
+cat /home/bob/flag21.php
+file /home/bob/flag21.php               # CRLF terminators = Windows file
+cat /home/bob/flag21.php | less         # or open through vim
+````
+
+Flag21: g00djob
+
+##### Notes
+
+**CRLF** = "Carriage Return, Line Feed" - it's a DOS hangover from the olden
+days from when some devices required a Carriage Return, and some devices
+required a Line Feed to get a new line, so MS decided to just make a new-line
+have both characters, so that they would output correctly on all devices.
+*Linux/UNIX only uses LF terminators.*
+
+CRLF outcomes: CRLF injection, dox2unix/unix2dox conversion
+
+**PHP** is a server side scripting language that is used to develop websites
+or web applications.  *PHP stands for Hypertext Pre-processor, that earlier
+stood for Personal Home Pages.*  PHP scripts can only be interpreted on a
+server that has PHP installed.
+
+PHP '$ _ POST' is a PHP super global variable which is used to collect form
+data after submitting an HTML form with method="post".  $ _ POST is also widely
+used to pass variables.
+
+#### Q3) Locate and read flag 22.  Its represented as hex.
+
+```bash
+find / -iname flag22* 2>/dev/null
+xxd -r p /home/alice/flag22
+```
+
+Note: xxd -r(evert) -p(lain); where -p(lain) prints output plain hexdump style.
+
+Flag22: 9d1ae8d569c83e03d8a8f61568a0fa7d
+
+#### Q4) Locate, read and reverse flag 23.
+
+```bash
+rev flag23
+```
+
+rev - reverse lines characterwise.
+
+Flag23: ea52970566f4c090a7348b033852bff5
+
+#### Q5) Analyse the flag 24 compiled C program. Find a command that might reveal human readable strings when looking in the source code.
+
+```bash
+strings flag24
+````
+
+Flag24: hidd3nStr1ng
+
+#### Q6) Flag 25 does not exists.
+
+SKIP.
+
+#### Q7) Find flag 26 by searching the all files for a string that begins with 4bceb and is 32 characters long.
+
+```bash
+# find's '-exec' MUST include a ';'
+find / -xdev 2>/dev/null -exec grep '^4bceb' {} \;
+# OR include 32 total chars
+find / -xdev 2>/dev/null -exec grep '$4bceb.\{28\}' {} \;
+```
+
+Flag26: 4bceb76f490b24ed577d704c24d6955d
+
+#### Q8) Flag27, owned by root.
+
+Tried: sudo -l to find sudoers (alice comes close, but can't do anything :( )
+Tried: alice $ chown/chmod /home/flag27
 
 
-#### Q3)
+#### Q9) Whats the linux kernal version?
 
+```bash
+uname -a
+```
 
-#### Q4)
+Answer: 4.4.0-1075-aws
 
+#### Q10) Find the file called flag 29 and do the following operations on it:
 
-#### Q5)
+    1. remove all the spaces in the file
+    2. remove all new line spaces.
+    3. split by comma and get the last element in the split
 
-
-#### Q6)
-
-
-#### Q7)
-
-
-#### Q8)
-
-
-#### Q9)
-
-
-#### Q10)
+Answer:
 
 
 ## 5) SQL, FTP, Groups, and RDP
