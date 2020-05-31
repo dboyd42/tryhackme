@@ -1,8 +1,7 @@
 # Linux Challenges Walkthrough
 
-              |                     |
---------------|---------------------|
 Date          | 2020-05-31          |
+--------------|---------------------|
 Learning Path | Complete Beginner   |
 Box           | Linux Challenge     |
 
