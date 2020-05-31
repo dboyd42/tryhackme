@@ -325,30 +325,55 @@ Flag: ee5954ee1d4d94d61c2f823d7b9d733c
 ## Q4) Using SCP, FileZilla or another FTP client download flag32.mp3 to reveal flag 32.
 
 ```bash
-
+scp alice@10.10.x.x:flag32.mp3 ./
+start-process flag32.mp3        # was using PowerShell, lmao
 ```
 
-## Q5)
+Notes: http://www.hypexr.org/linux_scp_help.php
+
+Flag32: tryhackme1337
+
+## Q5) Flag 33 is located where your personal $PATH's are stored.
+
+```bash
+cat /home/bob/.profile | grep -i flag
+```
+
+Flag33: 547b6ceee3c5b997b625de99b044f5cf
+
+## Q6) Using system variables, what is flag34?  # no need to su
+
+```bash
+# Method 1) call path
+echo $flag34
+
+# Method 2) open environment file that holds the list of unique assignments
+cat /etc/environment
+```
+
+Flag34: 7a88306309fe05070a7c5bb26a6b2def
+
+## Q7) Look at all groups created on the system.  What is flag 35?
+
+```bash
+cat /etc/group | grep -i flag
+```
+
+Note: Displaying all groups is a challenge if using [id, groups]
+
+Flag: 769afb6
 
 
-## Q6)
+## Q8) Find the user which is apart of the "hacker" group and read flag 36.
 
+```bash
+cat /etc/group | grep -i hack
+find / -iname *flag36* 2>/dev/null
+su bob
+cat /etc/flag36
+```
 
-## Q7)
+Flag36: 83d233f2ffa388e5f0b053848caed1eb
 
-
-## Q8)
-
-
-## Q9)
-
-
-
-
-
-
-
-
-
-
+## Q9) Well done! You've completed the LinuxCTF room!
 
