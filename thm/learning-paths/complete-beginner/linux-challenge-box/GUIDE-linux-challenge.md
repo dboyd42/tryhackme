@@ -7,8 +7,9 @@ Box           | Linux Challenge     |
 
 ## 1) Introduction (init access)
 
->Username: garry
->Password: letmein
+Username: garry
+
+Password: letmein
 
 Q# | Question | How-to | Answer |
 ---|----------|--------|--------|
@@ -50,8 +51,140 @@ ps -x                    | show unattached terminal processes   |
 
 ## 3) Linux Functionality
 
+###### Init access (given)
+
+Username: alice
+
+Password: TryHackMe123
+
+#### Q1) Run the command flag11.  Locate where your command alias are stored and get flag 11.
+
+```bash
+cd /home/
+for dir in */; do
+    cd $dir
+    cat .bashrc | grep -i flag;
+    cat .bash_aliases | grep -i flag;
+    cd ../;
+done
+```
+
+Flag11: b4ba05d85801f62c4c0d05d3a76432e0
+
+#### Q2) Flag12 is located where MOTD's are usually found on Ubuntu.
+
+***MOTD (Message of the Day)***
+
+```bash
+cat /etc/update-motd.d/* | grep -i flag
+```
+
+Flag12: 01687f0c5e63382f1c9cc783ad44ff7f
+
+#### Q3) Find diff b/t 2 script files to find flag 13
+
+```bash
+find / -iname *flag13*
+cd /home/bob/flag13/
+vimdiff script1 script2
+```
+
+Flag13: 3383f3771ba86b1ed9ab7fbf8abab531
+
+#### Q4) Where on the file system are logs typically stored?
+
+```bash
+cd /var/log/
+cat flagtourteen.txt
+```
+
+**/var directory** stands for *variable* (it holds variable data, the directory it contains are changing in size every time).  I.e.) logs!
+
+Flag14: 71c3a8ad9752666275dadf62a93ef393
+
+#### Q5) Can you find information about the system, such as the kernal version, etc?
+
+```bash
+cat /etc/lsb-release
+```
+
+Flag15: a914945a4b2b5e934ae06ad6f9c6be45
+
+#### Q6) Flag16 lies within in another system mount
+
+```bash
+cd /media/f/l/a/g/1/6/is/cab4b7cae33c87794d82efa1e7f834e6/
+```
+
+Note: just hit tab after /media/ a bunch of times, lol.
+
+Flag16: cab4b7cae33c87794d82efa1e7f834e6
+
+#### Q7) Login to alice's account using her private key and get flag 17.
+
+```bash
+cat /home/alice/flag17
+```
+
+Note: did not have to login using private key... ?!
+
+Flag17: 89d7bce9d0bab49e11e194b54a601362
+
+#### Q8) Find the hidden flag 18
+
+```bash
+cat /home/alice/.flag18
+```
+
+Flag18: c6522bb26600d30254549b6574d2cef2
+
+#### Q9) Read the 2345th line of the file that contains flag19.
+```bash
+head -n 2345 flag19 | tail -n 1
+```
+
+Flag19: 490e69bd1bf3fc736cce9ff300653a3b
 
 ## 4) Data Representation, Strings, and Premissions
+
+#### Q1)  Flag 20
+
+```bash
+base64 --decode flag20
+```
+
+**base64** is a binary-to-text encoding scheme that formats 8-bits into 6 bits (2^6=64!)
+It works by taking three ASCII letters' bits and dividing them into four sections (6 bits each).
+Each new 6-bit 'word' is mapped to a base64 scheme (table).
+**Because of its limited scheme, its easily recognizable and often ends with one or more '=' due to extra chars needed for division.
+
+Flag20: 02b9aab8a29970db08ec77ae425f6e68
+
+#### Q2)
+
+
+#### Q3)
+
+
+#### Q4)
+
+
+#### Q5)
+
+
+#### Q6)
+
+
+#### Q7)
+
+
+#### Q8)
+
+
+#### Q9)
+
+
+#### Q10)
 
 
 ## 5) SQL, FTP, Groups, and RDP
