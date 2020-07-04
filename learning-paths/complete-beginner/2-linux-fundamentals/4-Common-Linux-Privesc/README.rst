@@ -48,7 +48,7 @@ Issues
 :Solution: The *SimpleHTTPServer* module has been merged into the
            *http.server* in Python 3.0
 
-.. code-block :: Python
+.. code-block:: Python
 
 	python3 -m http.server 8000
 
@@ -61,7 +61,7 @@ directory.**  // Think: -m = "main directory"
 Sandbox
 ~~~~~~~
 
-.. code-block :: Python
+.. code-block:: Python
 
 	# My machine
 	python3 -m http.server 8000
@@ -77,7 +77,7 @@ Questions
 :Notes: https://regexone.com for grep refresher
 :grep: {m} = matching repreated characters
 
-.. code-block :: Bash
+.. code-block:: Bash
 
 	# What is the target's hostname?
 	hostname
@@ -94,4 +94,123 @@ Questions
 	### > critical files include /etc/, /var/
 	### > permissions change would typically include user groups' changes
 	ls -l | grep -E "\-[rwx-]{4}w]"
+
+[Task 5] Abusing SUID/SGID Files
+================================
+:rwx-: read, write, execute, NO permissions
+:--s--S--t: SUID w/ execution, SUID w/o exec, sTicky bit
+:NOTE: GUID/SGID are used interchangably.
+
+.. image:: ./special-permissions.png
+
+First step in privilege escalation exploitation is to check for files with
+SUID/SGID bit set.  This means that the file(s) can be run with the permissions
+of the file(s) owner/group.
+
+SUID
+----
+:SUID: https://linuxhandbook.com/suid-sgid-sticky/
+:s: stands for 'Set'
+:SUID: SetUID
+
+SUID (Set User ID) binary
+	a special type of file permission given to a file (everything in Linux is a
+	file!).  Normally in Linux/UNIX when a program runs, it inherit's access
+	permissions from the logged in user.  SUID is defined as *giving temporary
+	permissions to a user to run a program/file with th epermissions of the
+	file owner, rather than that of the user who runs it.* In simple words,
+	**users will get owner's permsissions as well as owner UID and GID when
+	executing a file/program/command**.
+
+:SUID with execute permissions: -rws------
+:SUID without execute permissions: -rwS------
+:Change SUID execute permissions: chmod u+[sS] filename
+
+SGID (Set Group ID)
+	any user executing the file will have the same permissions as the *group
+	owner* of the file.
+
+:SGID with execute permissions: ----rws---
+:SGID without execute permissions: ----rwS---
+:Change SGID execute permissions: chmod g+[sS] filename
+:Example: ls -l /var/local
+:Practical Usage: Samba server for sharing files on local netw.
+
+Where is SUID used?
+~~~~~~~~~~~~~~~~~~~
+
+	1.	Where root login is required to execute some cmds/prgms/scripts.
+	2.	Where you don't want to give credentials of a particular user, but want
+	    to run some prgms as the owner.
+	3.	Where you don't want to use 'sudo' cmd, but want to give execute
+	    permission for a file/script.
+
+SUID/SGID/sTicky bit for a file
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. code-block:: Bash
+
+	###
+	### Setup
+	###
+	# method 1
+	chmod u+s file.name (SUID)
+	chmod g+s file.name (SGID)
+	chmod +t dir.name   (sTicky bit)
+
+	# method 2
+	chmod 4nnn file.name    # where nnn is [0-7] respectively.
+
+	###
+	### Remove
+	###
+	# method 1
+	chmod u-s file.name
+	chmod g-s file.name
+	chmod -t dir.name   (sTicky bit)
+
+	# method 2
+	chmod 0nnn file.name    # where nnn is [0-7] respectively.
+	chmod 0nnn file.name    # SGID is the same as SUID to rm
+	chmod 0nnn file.name    # sTicky bit is the same as SUID to rm
+
+	###
+	### Find SUID/SGID files
+	###
+	find / -perm /4000      # SUID
+	find / -perm /2000      # SGID
+	find / -perm /1000      # sTicky bit
+	# [THM] method
+	find / -perm -u=s -type f 2>/dev/null
+
+Bonus
+~~~~~
+:d--------t: sTicky bit
+:T/t: sTick bit ONLY, sticky bit +x
+
+Sticky Bit
+	only file owner(s) can mv/rm dir/files within a directory.  **Sticky bits
+	only works with DIRECTORIES!!!**
+
+Questions
+---------
+
+.. code-block:: Bash
+
+	#1 What is the path of the file in user3's directory that stands out to
+	# you?
+	ls
+
+	# We know that "shell" is a SUID bit file, therefore running it will run
+	# the script as a root user!  Lets run it!  We can do this by running:
+	# "./shell"
+	<no answer needed>
+
+	# Congratulations!  You should now have a shell as rot user, well done!
+	<wtf?>
+
+[Task 6] Exploiting Writeable /etc/passwd
+=========================================
+
+
 
