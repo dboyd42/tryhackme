@@ -61,6 +61,8 @@ directory.**  // Think: -m = "main directory"
 Sandbox
 ~~~~~~~
 
+.. image:: ./http.server_python3_file-xfer.png
+
 .. code-block:: Python
 
 	# My machine
