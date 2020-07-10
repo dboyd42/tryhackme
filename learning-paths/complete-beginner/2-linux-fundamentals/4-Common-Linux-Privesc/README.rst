@@ -86,6 +86,9 @@ Questions
 
 	# Look at the output of /etc/passwd,
 	# how many "user[x]" are there on the system?
+	### Method 1
+	cat /etc/passwd | grep .user.
+	### Method 2
 	cat /etc/passwd | grep user[0-9] | cut -d ':' -f1
 
 	# How many available shells are there on the system?
@@ -119,7 +122,7 @@ SUID (Set User ID) binary
 	a special type of file permission given to a file (everything in Linux is a
 	file!).  Normally in Linux/UNIX when a program runs, it inherit's access
 	permissions from the logged in user.  SUID is defined as *giving temporary
-	permissions to a user to run a program/file with th epermissions of the
+	permissions to a user to run a program/file with the permissions of the
 	file owner, rather than that of the user who runs it.* In simple words,
 	**users will get owner's permsissions as well as owner UID and GID when
 	executing a file/program/command**.
@@ -202,17 +205,37 @@ Questions
 	#1 What is the path of the file in user3's directory that stands out to
 	# you?
 	ls
+	ls -al
+	# find doesn't show s/g/
+	find ./ -perm /4000
+	find / -perm /4000 2>/dev/null
+	find / -perm /4000 -o -perm /2000 -o -perm /1000 2>/dev/null
 
 	# We know that "shell" is a SUID bit file, therefore running it will run
 	# the script as a root user!  Lets run it!  We can do this by running:
 	# "./shell"
 	<no answer needed>
 
-	# Congratulations!  You should now have a shell as rot user, well done!
+	# Congratulations!  You should now have a shell as root user, well done!
 	<wtf?>
 
 [Task 6] Exploiting Writeable /etc/passwd
 =========================================
 
+/etc/passwd
+	a *plain text file* that contains a list of **system's accounts (user ID,
+	group ID, home directory, shell, and more)**.  Useful to map user IDs to
+	user names.  Write access is limited to superuser/root account.
+
+
+IF (non-root user has write access) {
+	VULNERABILITY;
+	vulnerability {
+		adduser root2;  // root user that we can access
+	}
+}
+
+Understanding /etc/passwd format
+--------------------------------
 
 
