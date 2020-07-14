@@ -86,10 +86,10 @@ Questions
 
 	# Look at the output of /etc/passwd,
 	# how many "user[x]" are there on the system?
-	### Method 1
-	cat /etc/passwd | grep .user.
-	### Method 2
+	cat /etc/passwd | grep user
 	cat /etc/passwd | grep user[0-9] | cut -d ':' -f1
+	### method 3) searches UID >= 1000
+	cat /etc/passwd | grep -E '1([0-9]){3}'
 
 	# How many available shells are there on the system?
 	cat -n /etc/shells
