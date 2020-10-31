@@ -1,0 +1,6 @@
+from django.shortcuts import HttpResponse
+
+def hello(request, number):
+  text = "<h1>Welcome to my Articles app!</h1>"
+  return HttpResponse(text)
+

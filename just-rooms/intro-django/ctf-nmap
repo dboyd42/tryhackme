@@ -1,0 +1,4 @@
+# Nmap 7.91 scan initiated Sat Oct 31 01:58:47 2020 as: nmap -A -T5 -oG ctf-nmap 10.10.199.87
+Host: 10.10.199.87 ()	Status: Up
+Host: 10.10.199.87 ()	Ports: 22/open/tcp//ssh//OpenSSH 7.6p1 Ubuntu 4ubuntu0.3 (Ubuntu Linux; protocol 2.0)/, 720/filtered/tcp//unknown///, 888/filtered/tcp//accessbuilder///, 1863/filtered/tcp//msnp///, 3493/filtered/tcp//nut///, 3809/filtered/tcp//apocd///, 4279/filtered/tcp//vrml-multi-use///, 8000/open/tcp//http-alt//WSGIServer|0.2 CPython|3.6.9/, 8093/filtered/tcp//unknown///, 10003/filtered/tcp//documentum_s///, 62078/filtered/tcp//iphone-sync///	Ignored State: closed (989)
+# Nmap done at Sat Oct 31 02:01:24 2020 -- 1 IP address (1 host up) scanned in 156.90 seconds
