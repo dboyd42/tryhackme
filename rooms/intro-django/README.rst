@@ -3,9 +3,8 @@ Walkthrough
 :Author: David Boyd
 :Date: 2020-10-31
 
-============
 Introduction
-============
+************
 
 Now it's time for a small CTF!
 
@@ -16,12 +15,11 @@ Fix the error and retrieve all the flags! (Use knowledge from previous units)
 Username: django-admin
 Password: roottoor1212
 
-===================
 Questions & Answers
-===================
+*******************
 
 Quick Way
----------
+=========
 
 The quickest and easiest way to to hack this box is by not following the rule.
 SSH in with the admin credentials.
@@ -35,7 +33,7 @@ SSH in with the admin credentials.
 	grep -rnw /home/ -e "THM" 2>/dev/null
 
 The Approach
-------------
+============
 
 Perform the appropriate reconnaisance on the box. To find ports 22,8000 open.
 
@@ -61,7 +59,7 @@ Okay, cool!  So, you're already a sudoer! (hence why the quick and dirty way of
 finding the answers works!)
 
 #1 Admin panel flag?
---------------------
+====================
 
 You're starting directory is in the django_admin's home directory.  Cool, so
 let's check out what files lay in waste.
@@ -87,7 +85,7 @@ let's check out what files lay in waste.
 :ANS: THM{DjanGO_Adm1n}
 
 #2 User flag?
--------------
+=============
 
 From the previously given link, go to crackstation.net and crack StrangeFox's
 password.  From there, just su or SSH using StrangeFox's password.
@@ -107,7 +105,7 @@ password.  From there, just su or SSH using StrangeFox's password.
 :ANS: THM{SSH_gUy_101}
 
 #3 Hidden flag?
----------------
+===============
 
 .. code-block:: bash
 
