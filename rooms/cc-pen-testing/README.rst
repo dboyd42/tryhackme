@@ -1,10 +1,10 @@
-README
-#######
+GoBuster
+########
 :Author: David Boyd
 :Date: 2020-10-18
 
 gobuster
-========
+********
 :URL: https://redteamtutorials.com/2018/11/19/gobuster-cheatsheet/
 
 gobuster
@@ -13,7 +13,7 @@ gobuster
 	as well as DNS subdomains
 
 Commands
-========
+********
 
 .. code-block:: Bash
 	# Basic help menu
@@ -51,7 +51,7 @@ Commands
 *REFER to the gobuster cheatsheet for more*
 
 Flags
-=====
+*****
 
 	.. code-block:: Bash
 
@@ -65,6 +65,6 @@ Flags
 	-t 40 -x xxa
 
 Status Codes
-============
+************
 :301: Moved Permanently
 
