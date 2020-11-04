@@ -1,13 +1,11 @@
 Wifi-Hacking-101
-#######
+################
 :Author: David Boyd
 :Date: 2020-10-29
 
-#####################################
 [Task 1] The Basics - An Intro to WPA
-#####################################
+*************************************
 
-=========
 Key Terms
 =========
 :SSID: The network "name" that you see when you try and connect
@@ -21,7 +19,6 @@ Key Terms
 		providing a username and password, which is sent to a RADIUS server.
 :RADIUS: A server for authenticating clients, not just for wifi.
 
-====
 Quiz
 ====
 
@@ -37,9 +34,8 @@ Quiz
 #4 What's the minimum length of a WPA2 Personal password?
 :ANS: 8
 
-###########################################################
 [Task 2] You're Being Watched - Capturing Packets to Attack
-###########################################################
+***********************************************************
 
 The aircrack-ng suite consists of
 ==================================
@@ -61,7 +57,6 @@ The aircrack-ng suite consists of
 	- tkiptun-ng
 	- wesside-ng
 
-====
 Quiz
 ====
 
@@ -93,9 +88,8 @@ airodump-ng
 
 -w
 
-######################################
 [Task3] Aircrack-ng Let's Get Cracking
-######################################
+**************************************
 
 In order to crack the password, we can either use aircrack itself or create a
 hashcat file in order to use GPU acceleration. There are two different versions
@@ -103,7 +97,7 @@ of hashcat output file, most likely you want 3.6+ as that will work with recent
 versions of hashcat.
 
 Useful Information
-------------------
+==================
 :BSSID: 02:1A:11:FF:D9:BD
 :ESSID: 'James Honor 8'
 
@@ -124,7 +118,7 @@ What's the password?
 :ANS: greeneggsandham
 
 Walkthrough
------------
+===========
 
 	aircrack-ng -b 02:1A:11:FF:D9:BD -w /usr/share/wordlists/rockyou.txt \
 	NinjaJc01-01.cap
