@@ -7,25 +7,19 @@ OpenVPN
 Windows 10
 ----------
 
-OpenVPN > bhat1.ovpn
+OpenVPN GUI > <usrname>.ovpn
 
-Additionally let through host firewall as new rule > program > inbound.
-Don't know if that made a difference though...?
+WSL
+---
 
-.. code-block :: Windows GUI
-
-	Title: OpenVPN - Check Connection
-	IP Address: 10.10.243.142
-	Expires: 1hr--
-	[Button] Add 1 hour
-	[Button] Terminate
-
-Completed
+1.	Can run through Windows 10 OpenVPN GUI
+2.	If invoking listeners/reverse shells/etc on WSL;
+	THEN disconnect Windows OpenVPN GUI and start `Linux`_ vpn.
 
 Linux
 -----
 
 .. code-block:: Bash
 
-	sudo openvpn bhat.ovpn
+	sudo openvpn <usrname>.ovpn
 
