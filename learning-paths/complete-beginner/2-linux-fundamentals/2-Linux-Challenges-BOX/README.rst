@@ -82,7 +82,7 @@ Init access (given)
 Q1) Run the command flag11.  Locate where your command alias are stored and get flag 11.
 ----------------------------------------------------------------------------------------
 
-... code-block:: Bash
+.. code-block:: Bash
 
 	cd /home/
 	for dir in */; do
@@ -99,7 +99,7 @@ Q2) Flag12 is located where MOTD's are usually found on Ubuntu.
 
 **MOTD (Message of the Day)**
 
-... code-block:: Bash
+.. code-block:: Bash
 
 	cat /etc/update-motd.d/* | grep -i flag
 
@@ -108,7 +108,7 @@ Q2) Flag12 is located where MOTD's are usually found on Ubuntu.
 Q3) Find diff b/t 2 script files to find flag 13
 ------------------------------------------------
 
-... code-block:: Bash
+.. code-block:: Bash
 
 	find / -iname *flag13*
 	vimdiff /home/bob/flag13/script{1,2}
@@ -118,7 +118,7 @@ Q3) Find diff b/t 2 script files to find flag 13
 Q4) Where on the file system are logs typically stored?
 -------------------------------------------------------
 
-... code-block:: Bash
+.. code-block:: Bash
 
 	cd /var/log/
 	cat flagtourteen.txt
@@ -130,7 +130,7 @@ Q4) Where on the file system are logs typically stored?
 Q5) Can you find information about the system, such as the kernal version, etc?
 -------------------------------------------------------------------------------
 
-... code-block:: Bash
+.. code-block:: Bash
 
 	cat /etc/lsb-release
 
@@ -139,7 +139,7 @@ Q5) Can you find information about the system, such as the kernal version, etc?
 Q6) Flag16 lies within in another system mount
 ----------------------------------------------
 
-... code-block:: Bash
+.. code-block:: Bash
 
 	cd /media/f/l/a/g/1/6/is/cab4b7cae33c87794d82efa1e7f834e6/
 
@@ -150,7 +150,7 @@ Q6) Flag16 lies within in another system mount
 Q7) Login to alice's account using her private key and get flag 17.
 -------------------------------------------------------------------
 
-... code-block:: Bash
+.. code-block:: Bash
 
 	cat /home/alice/flag17
 
@@ -160,7 +160,7 @@ Q7) Login to alice's account using her private key and get flag 17.
 Q8) Find the hidden flag 18
 ---------------------------
 
-... code-block:: Bash
+.. code-block:: Bash
 
 	cat /home/alice/.flag18
 
@@ -169,7 +169,7 @@ Q8) Find the hidden flag 18
 Q9) Read the 2345th line of the file that contains flag19.
 ----------------------------------------------------------
 
-... code-block:: Bash
+.. code-block:: Bash
 
 	find / -iname flag19 2>/dev/null
 	head -n 2345 /home/alice/flag19 | tail -n 1
@@ -192,7 +192,7 @@ Q9) Read the 2345th line of the file that contains flag19.
 Q1)  Flag 20
 ------------
 
-... code-block:: Bash
+.. code-block:: Bash
 
 	base64 --decode flag20
 
@@ -206,7 +206,7 @@ Each new 6-bit 'word' is mapped to a base64 scheme (table).
 Q2) Inspect the flag21.php file.  Find the flag.
 ------------------------------------------------
 
-... code-block:: Bash
+.. code-block:: Bash
 
 	find / -iname flag21.php 2>/dev/null
 	cat /home/bob/flag21.php
@@ -240,7 +240,7 @@ PHP '$ _ POST'
 Q3) Locate and read flag 22.  Its represented as hex.
 -----------------------------------------------------
 
-... code-block:: Bash
+.. code-block:: Bash
 
 	find / -iname flag22* 2>/dev/null
 	xxd -r p /home/alice/flag22
@@ -251,7 +251,7 @@ Q3) Locate and read flag 22.  Its represented as hex.
 Q4) Locate, read and reverse flag 23.
 -------------------------------------
 
-... code-block:: Bash
+.. code-block:: Bash
 
 	rev flag23
 
@@ -264,7 +264,7 @@ rev
 Q5) Analyse the flag 24 compiled C program. Find a command that might reveal human readable strings when looking in the source code.
 ------------------------------------------------------------------------------------------------------------------------------------
 
-... code-block:: Bash
+.. code-block:: Bash
 
 strings flag24
 
@@ -278,7 +278,7 @@ SKIP.
 Q7) Find flag 26 by searching the all files for a string that begins with 4bceb and is 32 characters long.
 ----------------------------------------------------------------------------------------------------------
 
-... code-block:: Bash
+.. code-block:: Bash
 	# find's '-exec' MUST include a ';'
 	find / -xdev 2>/dev/null -exec grep '^4bceb' {} \;
 	# OR include 32 total chars
@@ -289,7 +289,7 @@ Q7) Find flag 26 by searching the all files for a string that begins with 4bceb 
 Q8) Flag27, owned by root.
 --------------------------
 
-... code-block:: Bash
+.. code-block:: Bash
 
 	sudo -l
 	sudo cat /home/flag27
@@ -299,7 +299,7 @@ Q8) Flag27, owned by root.
 Q9) Whats the linux kernal version?
 -----------------------------------
 
-... code-block:: Bash
+.. code-block:: Bash
 
 	uname -a
 
@@ -312,7 +312,7 @@ Q10) Find the file called flag 29 and do the following operations on it:
 	2. remove all new line spaces.
 	3. split by comma and get the last element in the split
 
-... code-block:: Bash
+.. code-block:: Bash
 
 	find / -iname *file29* 2>/dev/null
 	ls -al /home/garry/file29               # find owner & group
@@ -354,7 +354,7 @@ Method 2) tr'anslate'
 Q1) Curl to find flag 30
 ------------------------
 
-... code-block:: Bash
+.. code-block:: Bash
 
 	curl localhost
 
@@ -365,7 +365,7 @@ Q2) Flag 31 is a MySQL database name.
 :MySQL username: root
 :MySQL password: hello
 
-... code-block:: Bash
+.. code-block:: Bash
 
 	mysql -u root -p
 	password:
@@ -375,7 +375,7 @@ Q2) Flag 31 is a MySQL database name.
 
 Q3) Bonus! Get data out of the table from the database found above.
 
-... code-block:: Bash
+.. code-block:: Bash
 use database_2fb1cab13bf5f4d61de3555430c917f4;
 show tables;    # 'flags'
 select * from flags;
@@ -387,7 +387,7 @@ Flag: ee5954ee1d4d94d61c2f823d7b9d733c
 Q4) Using SCP, FileZilla or another FTP client download flag32.mp3 to reveal flag 32.
 -------------------------------------------------------------------------------------
 
-... code-block:: Bash
+.. code-block:: Bash
 
 	scp alice@10.10.x.x:flag32.mp3 ./
 	start-process flag32.mp3        # was using PowerShell, lmao
@@ -398,7 +398,7 @@ Q4) Using SCP, FileZilla or another FTP client download flag32.mp3 to reveal fla
 Q5) Flag 33 is located where your personal $PATH's are stored.
 --------------------------------------------------------------
 
-... code-block:: Bash
+.. code-block:: Bash
 
 	cat /home/bob/.profile | grep -i flag
 
@@ -407,7 +407,7 @@ Q5) Flag 33 is located where your personal $PATH's are stored.
 Q6) Using system variables, what is flag34?  # no need to su
 ------------------------------------------------------------
 
-... code-block:: Bash
+.. code-block:: Bash
 
 	# Method 1) call path
 	echo $flag34
@@ -420,7 +420,7 @@ Q6) Using system variables, what is flag34?  # no need to su
 Q7) Look at all groups created on the system.  What is flag 35?
 ---------------------------------------------------------------
 
-... code-block:: Bash
+.. code-block:: Bash
 
 	cat /etc/group | grep -i flag
 
@@ -430,7 +430,7 @@ Q7) Look at all groups created on the system.  What is flag 35?
 Q8) Find the user which is apart of the "hacker" group and read flag 36.
 ------------------------------------------------------------------------
 
-... code-block:: Bash
+.. code-block:: Bash
 
 	cat /etc/group | grep -i hack
 	find / -iname *flag36* 2>/dev/null
