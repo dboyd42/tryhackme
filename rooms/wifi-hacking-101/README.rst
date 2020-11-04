@@ -22,17 +22,21 @@ Key Terms
 Quiz
 ====
 
-#1 What type of attack on the encryption can you perform on WPA(2) personal?
-:ANS: brute force (dictionary)
+1. What type of attack on the encryption can you perform on WPA(2) personal?
 
-#2 Can this method be used to attack WPA2-EAP handshakes? (Yea/Nay)
-:ANS: Nay (yes, but requires username)
+brute force (dictionary)
 
-#3 What three letter abbreviation is the technical term for the "wifi passwd?"
-:ANS: PSK
+2. Can this method be used to attack WPA2-EAP handshakes? (Yea/Nay)
 
-#4 What's the minimum length of a WPA2 Personal password?
-:ANS: 8
+Nay (yes, but requires username)
+
+3. What three letter abbreviation is the technical term for the "wifi passwd?"
+
+PSK
+
+4. What's the minimum length of a WPA2 Personal password?
+
+8
 
 [Task 2] You're Being Watched - Capturing Packets to Attack
 ***********************************************************
@@ -60,31 +64,32 @@ The aircrack-ng suite consists of
 Quiz
 ====
 
-#1 How do you put the interface “wlan0” into monitor mode with Aircrack tools?
+1. How do you put the interface “wlan0” into monitor mode with Aircrack tools?
 
 airmon-ng start wlan0
 
-#2 What is the new interface name likely to be after you enable monitor mode?
-:ANS: wlan0mon
+2. What is the new interface name likely to be after you enable monitor mode?
 
-#3 What do you do if other processes are currently trying to use that network
+wlan0mon
+
+3. What do you do if other processes are currently trying to use that network
 adapter?
 
 airmon-ng check kill
 
-#4 What tool from the aircrack-ng suite is used to create a capture?
+4. What tool from the aircrack-ng suite is used to create a capture?
 
 airodump-ng
 
-#5 What flag do you use to set the BSSID to monitor?
+5. What flag do you use to set the BSSID to monitor?
 
 --bssid
 
-#6 And to set the channel?
+6. And to set the channel?
 
 --channel
 
-#7 And how do you tell it to capture packets to a file?)
+7. And how do you tell it to capture packets to a file?)
 
 -w
 
@@ -101,21 +106,21 @@ Useful Information
 :BSSID: 02:1A:11:FF:D9:BD
 :ESSID: 'James Honor 8'
 
-#1 What flag do we use to specify a BSSID to attack?
+1. What flag do we use to specify a BSSID to attack?
 
 -b
 
-#2 What flag do we use to specify a wordlist?
+2. What flag do we use to specify a wordlist?
 
 -w
 
-#3 How do we create a HCCAPX in order to use hashcat to crack the password?
+3. How do we create a HCCAPX in order to use hashcat to crack the password?
 
 -j
 
-#4 Using the rockyou wordlist, crack the password in the attached capture.
-What's the password?
-:ANS: greeneggsandham
+4. Using the rockyou wordlist, crack the password in the attached capture.  What's the password?
+
+greeneggsandham
 
 Walkthrough
 ===========
@@ -123,9 +128,7 @@ Walkthrough
 	aircrack-ng -b 02:1A:11:FF:D9:BD -w /usr/share/wordlists/rockyou.txt \
 	NinjaJc01-01.cap
 
-
-
-#5 Where is password cracking likely to be fastest, CPU or GPU?
+5. Where is password cracking likely to be fastest, CPU or GPU?
 
 GPU
 
