@@ -270,7 +270,7 @@ Understanding /etc/passwd format
 Example
 ~~~~~~~
 
-+-------------+-------------+--------+--------+-----------------+-------------+--------------|
++-------------+-------------+--------+--------+-----------------+-------------+--------------+
 | 1. Username | 2. Password | 3. UID | 4. GID | 5. User ID Info | 6. Home Dir | 7. Cmd/Shell |
 +=============+=============+========+========+=================+=============+==============+
 | test:       | x:          | 0:     | 0:     | root:           | /root:      | /bin/bash    |
@@ -282,6 +282,4 @@ How to exploit a writeable /etc/passwd
 If (have writeable /etc/passwd file) {
 	adduser with root UID, GID, etc;
 }
-
-
 
