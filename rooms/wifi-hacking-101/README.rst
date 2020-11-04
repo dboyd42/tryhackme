@@ -24,19 +24,19 @@ Quiz
 
 1. What type of attack on the encryption can you perform on WPA(2) personal?
 
-brute force (dictionary)
+	- brute force (dictionary)
 
 2. Can this method be used to attack WPA2-EAP handshakes? (Yea/Nay)
 
-Nay (yes, but requires username)
+	- Nay (yes, but requires username)
 
 3. What three letter abbreviation is the technical term for the "wifi passwd?"
 
-PSK
+	- PSK
 
 4. What's the minimum length of a WPA2 Personal password?
 
-8
+	- 8
 
 [Task 2] You're Being Watched - Capturing Packets to Attack
 ***********************************************************
@@ -66,32 +66,32 @@ Quiz
 
 1. How do you put the interface “wlan0” into monitor mode with Aircrack tools?
 
-airmon-ng start wlan0
+	- airmon-ng start wlan0
 
 2. What is the new interface name likely to be after you enable monitor mode?
 
-wlan0mon
+	- wlan0mon
 
 3. What do you do if other processes are currently trying to use that network
 adapter?
 
-airmon-ng check kill
+	- airmon-ng check kill
 
 4. What tool from the aircrack-ng suite is used to create a capture?
 
-airodump-ng
+	- airodump-ng
 
 5. What flag do you use to set the BSSID to monitor?
 
---bssid
+	- --bssid
 
 6. And to set the channel?
 
---channel
+	- --channel
 
 7. And how do you tell it to capture packets to a file?)
 
--w
+	- -w
 
 [Task3] Aircrack-ng Let's Get Cracking
 **************************************
@@ -108,15 +108,15 @@ Useful Information
 
 1. What flag do we use to specify a BSSID to attack?
 
--b
+	- -b
 
 2. What flag do we use to specify a wordlist?
 
--w
+	- -w
 
 3. How do we create a HCCAPX in order to use hashcat to crack the password?
 
--j
+	- -j
 
 4. Using the rockyou wordlist, crack the password in the attached capture.  What's the password?
 
@@ -130,5 +130,5 @@ Walkthrough
 
 5. Where is password cracking likely to be fastest, CPU or GPU?
 
-GPU
+	- GPU
 
