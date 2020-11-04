@@ -1,5 +1,5 @@
-Walkthrough
-###########
+Introduction to Django
+######################
 :Author: David Boyd
 :Date: 2020-10-31
 
