@@ -26,6 +26,11 @@ set linebreak (lbr)
 	- nnoremap y= yyp:.s/./=/g<CR> && nohls<CR>
 	- nnoremap y+ yyp:.s/./+/g<CR> && nohls<CR>
 
+:.s/^-\+$/<substitution>/g
+--------------------------
+
+	- replace entire line of repeated char "=" with <substitution>
+
 set <setting>?
 --------------
 
