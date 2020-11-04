@@ -120,7 +120,7 @@ Useful Information
 
 4. Using the rockyou wordlist, crack the password in the attached capture.  What's the password?
 
-greeneggsandham
+	- greeneggsandham
 
 Walkthrough
 ===========
