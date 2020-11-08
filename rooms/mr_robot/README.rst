@@ -5,6 +5,7 @@ Mr. Robot
 
 Reconnassance
 *************
+:Tools: nmap, gobuster, wpscan
 
 .. code-block:: Bash
 
@@ -12,6 +13,17 @@ Reconnassance
 	gobuster dir -u $TM -w                                           \
 		/usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt \
 		-o gobuster-w-dirb-med.txt
+	wpscan --url $TM               > wpscan--url-TM.txt
+	wpscan --url $TM --enumerate u > wpscan--url-TM-enum-u.txt
+	nikto -host $TM -o nikto-host-TM -F txt
+
+Found Files
+===========
+
+	- $TM/robots.txt
+	- $TM/key-1-of-3.txt
+	- $TM/xmlrpc.php
+
 
 Capture the Flag
 ****************
@@ -36,8 +48,4 @@ Capture the Flag
 3. What is key 3?
 
 	-
-
-
-
-
 
