@@ -28,8 +28,7 @@ Hashcat Introduction
 ====================
 :SYNTAX: hashcat <attack-mode> <hash-algo> <out.txt> <hashesFile> <wordlist> --potfile-disable
 :Note: Disabling potfile allows outfile to be written as regular file
-:!IMPORTANT: If using a hash that begins w/ "$", then use single quotes to
-surrounding the hash
+:!IMPORTANT: If using a hash that begins w/ "$", then use single quotes to surrounding the hash
 
 1. The disadvantage to using hashcat, is that you'll have to know what type of
 hash it is that your trying to crack.  You can identify hashes at `Hash
@@ -130,6 +129,7 @@ man.
 
 
 3.
+
 :Hash: $6$aReallyHardSalt$6WKUTqzq.UQQmrm0p/T7MPpMbGNnzXPMAXi4bJMl9be.cfi3/qxIf.hsGpS41BqMhSrHVXgMpdjS6xeKZAs02.
 :Salt: aReallyHardSalt
 :Rounds: 5
@@ -207,6 +207,7 @@ alogorithms.
 
 
 4.
+
 :Hash: e5d8870e5bdd26602cab8dbe07a942c8669e56d6
 :Salt: tryhackme
 
