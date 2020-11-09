@@ -26,8 +26,7 @@ Using Hashcat
 
 Hashcat Introduction
 ====================
-:SYNTAX: hashcat <attack-mode> <hash-algo> <out.txt> <hashesFile> <wordlist>
---potfile-disable
+:SYNTAX: hashcat <attack-mode> <hash-algo> <out.txt> <hashesFile> <wordlist> --potfile-disable
 :Note: Disabling potfile allows outfile to be written as regular file
 :!IMPORTANT: If using a hash that begins w/ "$", then use single quotes to
 surrounding the hash
