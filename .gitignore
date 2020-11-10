@@ -20,3 +20,7 @@ _build
 *.hex
 *.obj
 *.lst
+
+# Hydra
+hydra.restore
+
