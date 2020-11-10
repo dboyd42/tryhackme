@@ -1,0 +1,16 @@
+-------------------------------------------------------------- ---------------------------------
+ Exploit Title                                                |  Path
+-------------------------------------------------------------- ---------------------------------
+[01;31m[KApache[m[K + PHP < 5.3.12 / < 5.4.2 - cgi-bin Remote Code Executi | php/remote/29290.c
+[01;31m[KApache[m[K + PHP < 5.3.12 / < 5.4.2 - Remote Code Execution + Sca | php/remote/29316.py
+[01;31m[KApache[m[K OpenMeetings 1.9.x < 3.1.0 - '.ZIP' File Directory Tra | linux/webapps/39642.txt
+[01;31m[KApache[m[K Tomcat < 5.5.17 - Remote Directory Listing             | multiple/remote/2061.txt
+[01;31m[KApache[m[K Tomcat < 6.0.18 - 'utf8' Directory Traversal           | unix/remote/14489.c
+[01;31m[KApache[m[K Tomcat < 6.0.18 - 'utf8' Directory Traversal (PoC)     | multiple/remote/6229.txt
+[01;31m[KApache[m[K Tomcat < 9.0.1 (Beta) / < 8.5.23 / < 8.0.47 / < 7.0.8  | jsp/webapps/42966.py
+[01;31m[KApache[m[K Tomcat < 9.0.1 (Beta) / < 8.5.23 / < 8.0.47 / < 7.0.8  | windows/webapps/42953.txt
+[01;31m[KApache[m[K Xerces-C XML Parser < 3.1.2 - Denial of Service (PoC)  | linux/dos/36906.txt
+Webfroot Shoutbox < 2.32 ([01;31m[KApache[m[K) - Local File Inclusion / Re | linux/remote/34.pl
+-------------------------------------------------------------- ---------------------------------
+Shellcodes: No Results
+Papers: No Results
