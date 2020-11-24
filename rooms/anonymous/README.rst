@@ -39,10 +39,12 @@ Walkthrough
 	smbclient \\\\$TM\\pics
 
 5. user.txt
+-----------
 :Answer: 90d6f992585815ff991e68748c414740
 :Walkthrough: GOTO Reverse SHell
 
 6. root.txt
+-----------
 :Answer: 4d930091c31a622a7ed10f27999af363
 :Walkthrough: GOTO Privilege Escalation
 
