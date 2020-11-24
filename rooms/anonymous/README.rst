@@ -14,20 +14,27 @@ methods.
 For more information on Linux, check out `Learn Linux
 <https://tryhackme.com/room/zthlinux>`_
 
+Questions
+=========
+
 1. Enumerate the machine.  How many ports are open?
+---------------------------------------------------
 :Answer: 4
 
 2. What service is running on port 21?
+--------------------------------------
 :Answer: FTP
 
 3. What service is running on ports 139 and 445?
+------------------------------------------------
 :Answer: SMB
 
 4. There's a share on the user's computer.  What's it called?
+-------------------------------------------------------------
 :Answer: pics
 
 Walkthrough
-===========
+^^^^^^^^^^^
 :Reference: `SMB Enum Shares <https://bestestredteam.com/2019/03/15/using-smbclient-to-enumerate-shares/>`_
 
 .. code-block:: Bash
@@ -115,7 +122,7 @@ Reverse Shell
 .. code-block:: Bash
 
 	## In FTP server
-	ftp $TM 21					### NOTE: use 'lftp' from now on
+	ftp $TM 21			### NOTE: use 'lftp' from now on
 	cd scripts
 	get clean.sh				### NOTE: use 'lftp > edit'
 
@@ -159,11 +166,11 @@ Capture The Flag
 
 .. code-block:: Bash
 
-	# CTF users.txt
+	# CTF(1) users.txt
 	ls
 	cat users.txt
 
-	# CTF users.txt
+	# CTF(2) root.txt
 	find / -type f -name "root.txt" 2>/dev/null
 	cat /root/root.txt
 
