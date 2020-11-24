@@ -27,7 +27,7 @@ For more information on Linux, check out `Learn Linux
 :Answer: pics
 
 Walkthrough
-^^^^^^^^^^^
+===========
 :Reference: `SMB Enum Shares <https://bestestredteam.com/2019/03/15/using-smbclient-to-enumerate-shares/>`_
 
 .. code-block:: Bash
