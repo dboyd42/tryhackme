@@ -244,8 +244,7 @@ Some NSE Categories:
 	- auth: attempt to bypass authentication for running services
 		- ie) anonymous FTP server log in
 	- brute: attempt to bruteforce credentials for running services
-	- discovery: attempt to query running services for further information
-	about the newtork
+	- discovery: attempt to query running services for further information about the newtork
 		- ie) query an SNMP server
 
 1. What language are NSE scripts written in?
