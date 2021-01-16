@@ -156,7 +156,7 @@ Advantages for 黑客們:
 Disadvantages:
 
 	- require sudo privileges
-	- unstable services can be brought down by SYN scans
+	- unstable services can be brought down by SYN scans (ICS, SCADA, LPC, etc)
 
 1. There are two other names for a SYN scan, what are they?
 ===========================================================
@@ -179,8 +179,8 @@ Disadvantages:
 	- slower cmp to TCP Connect scans (>=2 ACK TCP pkts to determine response
 	  as none) Note: 1000 port UDP scan >=20 minutes
 
-Therefore, when using UDP scans, use `--top-ports <number>`.  For example,
-`nmap -sU --top-ports 20 <target>`.
+Therefore, when using UDP scans, use :bash:`--top-ports <number>`.
+For example, :bash:`nmap -sU --top-ports 20 <target>`.
 
 1. If a UDP port doesn't respond to an Nmap scan, what will it be marked as?
 ============================================================================
