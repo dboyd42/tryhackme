@@ -287,8 +287,9 @@ Some NSE Categories:
 
 Scripts Locations:
 
-	1. https://nmap.org/nsedoc/
-	2. ``/usr/share/nmap/scripts``
+	1. [Linux] https://nmap.org/nsedoc/
+	2. [Linux] ``/usr/share/nmap/scripts``
+	3. [Windows] C:\Program Files (x86)\Nmap\scripts
 
 Searching for scripts:
 
@@ -320,7 +321,8 @@ Updating/Installing Scripts:
 =========================================================================================================================================================================================================
 :Answer: smb-os-discovery.nse
 
-Walkthrough:
+[Walkthrough]
+-------------
 
 .. code-block:: bash
 
@@ -373,27 +375,91 @@ Some FW evasion options:
 
 1. Does the target (10.10.253.86)respond to ICMP (ping) requests (Y/N)?
 =======================================================================
-:Answer:
+:Answer: N
+
+[Walkthrough]
+-------------
+
+[Windows] Zenmap
+^^^^^^^^^^^^^^^^
+
+.. code-block:: Zenmap
+
+	nmap -sn $TM
+	  > Starting Nmap 7.91 ( https://nmap.org ) at 2021-01-15 23:46 Central Standard Time
+	  > Note: Host seems down. If it is really up, but blocking our ping probes, try -Pn
+	  > Nmap done: 1 IP address (0 hosts up) scanned in 4.61 seconds))
+
+
+[WSL2] Kali
+^^^^^^^^^^^
+:ERROR 1: ``-sn`` consists of an ICMP echo request, yet non-sudo returns host is up.
+
+.. code-block:: bash
+
+	ping -c5 $TM
+	  > --- 10.10.254.230 ping statistics ---
+	  > 5 packets transmitted, 0 received, 100% packet loss, time 4140ms
+
+	nmap -sn $TM
+	  > Starting Nmap 7.91 ( https://nmap.org ) at 2021-01-15 23:18 CST
+	  > Nmap scan report for 10.10.254.230
+	  > Host is up (0.24s latency).
+	  > Nmap done: 1 IP address (1 host up) scanned in 1.38 seconds
+
+	sudo nmap -sn $TM
+	  > Starting Nmap 7.91 ( https://nmap.org ) at 2021-01-15 23:18 CST
+	  > Note: Host seems down. If it is really up, but blocking our ping probes, try -Pn
+	  > Nmap done: 1 IP address (0 hosts up) scanned in 3.03 seconds
 
 2. Perform an Xmas scan on the first 999 ports of the target -- how many ports are shown to be open or filtered?
 ================================================================================================================
-:Answer:
+:Answer: 999
+
+[Walkthrough]
+-------------
+:Notes: use ``-Pn``
+
+[Windows] Zenmap
+^^^^^^^^^^^^^^^^
+
+.. code-block:: Zenmap
+
+	nmap -Pn -sX -p 1-999 -vv $TM
+	  > Starting Nmap 7.91 ( https://nmap.org ) at 2021-01-15 23:51 Central Standard Time
+	  > Host discovery disabled (-Pn). All addresses will be marked 'up' and scan times will be slower.
+	  > Initiating Parallel DNS resolution of 1 host. at 23:51
+	  > Completed Parallel DNS resolution of 1 host. at 23:51, 0.04s elapsed
+	  > Initiating XMAS Scan at 23:51
+	  > Scanning 10.10.254.230 [999 ports]
+	  > XMAS Scan Timing: About 15.52% done; ETC: 23:55 (0:02:49 remaining)
+	  > XMAS Scan Timing: About 29.78% done; ETC: 23:55 (0:02:24 remaining)
+	  > XMAS Scan Timing: About 45.05% done; ETC: 23:55 (0:01:51 remaining)
+	  > XMAS Scan Timing: About 59.56% done; ETC: 23:55 (0:01:22 remaining)
+	  > XMAS Scan Timing: About 74.17% done; ETC: 23:55 (0:00:53 remaining)
+	  > Completed XMAS Scan at 23:55, 204.03s elapsed (999 total ports)
+	  > Nmap scan report for 10.10.254.230
+	  > Host is up, received user-set.
+	  > All 999 scanned ports on 10.10.254.230 are open|filtered because of 999 no-responses
+	  > Read data files from: C:\Program Files (x86)\Nmap
+	  > Nmap done: 1 IP address (1 host up) scanned in 205.59 seconds
+	  > Raw packets sent: 1998 (79.920KB) | Rcvd: 0 (0B)
 
 3. There is a reason given for this -- what is it?  Note: The answer will be in your scan results. Think carefully about which switches to use -- and read the hint before asking for help!
 ===========================================================================================================================================================================================
-:Answer:
+:Answer: no responses
 
 4. Perform a TCP SYN scan on the first 5000 ports of the target -- how many ports are shown to be open?
 =======================================================================================================
-:Answer:
+:Answer: 5
 
 5. Open Wireshark (see Cryillic's Wireshark Room for instructions) and perform a TCP Connect scan against port 80 on the target, monitoring the results. Make sure you understand what's going on.
 ==================================================================================================================================================================================================
-:Answer:
+:Answer: [No answer needed]
 
 6. Deploy the ftp-anon script against the box. Can Nmap login successfully to the FTP server on port 21? (Y/N)
 ==============================================================================================================
-:Answer:
+:Answer: N
 
 [Task 15] Conclusion
 ********************
