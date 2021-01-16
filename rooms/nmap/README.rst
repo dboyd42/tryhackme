@@ -179,8 +179,8 @@ Disadvantages:
 	- slower cmp to TCP Connect scans (>=2 ACK TCP pkts to determine response
 	  as none) Note: 1000 port UDP scan >=20 minutes
 
-Therefore, when using UDP scans, use :bash:`--top-ports <number>`.
-For example, :bash:`nmap -sU --top-ports 20 <target>`.
+Therefore, when using UDP scans, use ``--top-ports <number>``.
+For example, ``nmap -sU --top-ports 20 <target>``.
 
 1. If a UDP port doesn't respond to an Nmap scan, what will it be marked as?
 ============================================================================
