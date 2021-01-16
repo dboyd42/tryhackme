@@ -107,7 +107,7 @@ Nmap - Walkthrough
 [Task 5] [Scan Types] TCP Connect Scans
 ***************************************
 
-TCP Connect scans use the `-sT` switch to perform the *TCP three-way
+TCP Connect scans use the ``-sT`` switch to perform the *TCP three-way
 handshake*.
 
 TCP three-way handshake
@@ -192,36 +192,69 @@ For example, ``nmap -sU --top-ports 20 <target>``.
 
 [Task 8] [Scan Types] NULL, FIN, and XMAS
 *****************************************
+:NULL, FIN, and XMAS: Stealthier methods for FW evasion
+:closed ports: *RST* flag
+:open|filtered ports: *no response*
+:filtered port: *ICMP unreachable* packet
+:Warning: Windows, ~Cisco dev, etc may respond with a *RST* packet if receiving a malformed packet.
+
+NULL
+	``-sN`` are when the TCP request is sent with *no flags* set at all.  The
+	$TM responds with a *RST* flag if closed.
+
+FIN
+	``-sF`` are when the TCP request is sent with a *FIN* flag set.  The $TM
+	responds with a *RST* if closed.
+
+XMAS
+	``-sX`` are when the TCP request is sent with *PSH*, *URG*, and *FIN* flags
+	set... giving it the appearance of a blinking christmas tree when viewed as
+	a packet capture in Wireshark.  The $TM responds with a *RST* for closed
+	ports.
 
 1. Which of the three shown scan types uses the URG flag?
 =========================================================
-:Answer:
+:Answer: XMAS
 
 2. Why are NULL, FIN and Xmas scans generally used?
 ===================================================
-:Answer:
+:Answer: firewall evasion
 
 3. Which common OS may respond to a NULL, FIN or Xmas scan with a RST for every port?
 =====================================================================================
-:Answer:
+:Answer: Microsoft Windows
 
 [Task 9] [Scan Types] ICMP Network Scanning
 *******************************************
 
 1. How would you perform a ping sweep on the 172.16.x.x network (Netmask: 255.255.0.0) using Nmap? (CIDR notation)
 ==================================================================================================================
-:Answer:
+:Answer: nmap -sc 172.16.0.0./16
 
 [Task 10] [NSE Scripts] Overview
 ********************************
+:NSE Categories: https://nmap.org/book/nse-usage.html
+
+Some NSE Categories:
+
+	- safe: won't affect the target
+	- intrusive: not safe: liekly to affect the target
+	- vuln: scan for vulnerabilities
+	- exploit: attempt to exploit a vulnerability
+	- auth: attempt to bypass authentication for running services
+		- ie) anonymous FTP server log in
+	- brute: attempt to bruteforce credentials for running services
+	- discovery: attempt to query running services for further information
+	about the newtork
+		- ie) query an SNMP server
 
 1. What language are NSE scripts written in?
 ============================================
-:Answer:
+:Answer: Lua
 
 2. Which category of scripts would be a very bad idea to run in a production environment?
 =========================================================================================
-:Answer:
+:Answer: intrusive
 
 [Task 11] [NSE Scripts] Working with the NSE
 ********************************************
