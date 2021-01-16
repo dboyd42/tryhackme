@@ -238,12 +238,18 @@ XMAS
 Some NSE Categories:
 
 	- safe: won't affect the target
+
 	- intrusive: not safe: liekly to affect the target
+
 	- vuln: scan for vulnerabilities
+
 	- exploit: attempt to exploit a vulnerability
+
 	- auth: attempt to bypass authentication for running services
 		- ie) anonymous FTP server log in
+
 	- brute: attempt to bruteforce credentials for running services
+
 	- discovery: attempt to query running services for further information about the newtork
 		- ie) query an SNMP server
 
