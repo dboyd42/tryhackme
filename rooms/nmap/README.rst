@@ -13,8 +13,8 @@ Nmap - Walkthrough
 =========================
 :Answer: [No answer needed]
 
-[Task 2] Nmap Switches
-**********************
+[Task 2] Introduction
+*********************
 
 1. What networking constructs are used to direct traffic to the right application on a server?
 ==============================================================================================
@@ -28,8 +28,8 @@ Nmap - Walkthrough
 =====================================================================================================================
 :Answer: 1024
 
-[Task 3] [Scan Types] Overview
-******************************
+[Task 3] Nmap Switches
+**********************
 :Tip: man nmap
 
 1. What is the first switch listed in the help menu for a 'Syn Scan' (more on this later!)?
@@ -97,48 +97,101 @@ Nmap - Walkthrough
 :Answer: --script="vuln"
 :Alt Method: --script "vuln"
 
-[Task 4] [Scan Types]
-*********************
+[Task 4] [Scan Types] Overview
+******************************
 
 1. Read the Scan Types Introduction.
 ====================================
 :Answer: [No answer needed]
 
-[Task 5] [Scan Types]
-*********************
+[Task 5] [Scan Types] TCP Connect Scans
+***************************************
+
+TCP Connect scans use the `-sT` switch to perform the *TCP three-way
+handshake*.
+
+TCP three-way handshake
+	consists of three stages.  **First**, the connecting terminal ($AM) sends a
+	TCP request to the $TM with the *SYN flag* set.  **Secondly**, the $TM
+	*acknowledges* this packet with a tCP response containing the *SYN flag*,
+	as well as the *ACK flag*.  #SYN/ACK.  **Thirdly**, our $AM completes the
+	handshake by sending a tCP request with the *ACK flag* set.
+
+Nmap uses the TCP three-way handshake to determine port states #RFC793.
+
+If the port is **closed**, then the $TM will respond with a TCP packet with the
+*RST flag* set.  Note: $AM must 1st send a TCP pkt with its SYN flag set.
+
+If the port is **filtered**, then the $AM receives *NO RESPONSE*.  This
+indicates that the port is being protected by a firewall and the port's state
+is undetermined.  Note: Many FWs are configured to simply *drop* incoming pkts.
+
+.. code-block:: bash
+
+	# config FW to repond w/ an RST TCP pkt using IPtables
+	iptables -I INPUT -p tcp --dport <port> -j REJECT --reject-with tcp-reset
 
 1. Which RFC defines the appropriate behaviour for the TCP protocol?
 ====================================================================
-:Answer:
+:Answer: RFC 793
 
 2. If a port is closed, which flag should the server send back to indicate this?
 ================================================================================
-:Answer:
+:Answer: RST
 
-[Task 6] [Scan Types]
-*********************
+[Task 6] [Scan Types] SYN Scans
+*******************************
+
+SYN scans, aka, "Half-open" scans, "Stealth" scans.
+
+If Nmap is ran with sudo, then default scans are SYN scans; else default scans
+are TCP Connect scans.
+
+Advantages for 黑客們:
+
+	- bypass *older IDS*, not too common anymore, though
+	- often not logged by applications listening on open ports
+	- significantly faster than std TCP Connect scans
+
+Disadvantages:
+
+	- require sudo privileges
+	- unstable services can be brought down by SYN scans
 
 1. There are two other names for a SYN scan, what are they?
 ===========================================================
-:Answer:
+:Answer: half-open, stealth
 
 2. Can Nmap use a SYN scan without Sudo permissions (Y/N)?)
 ===========================================================
-:Answer:
+:Answer: N
 
-[Task 7] [Scan Types]
-*********************
+[Task 7] [Scan Types] UDP Scans
+*******************************
+
+Closed UDP ports are determined by receiving an *ICMP (ping)* pkt containing a
+message that the port is *unreachable*.
+
+Open|filtered UDP ports are determined by receiving no response.
+
+Disadvantages:
+
+	- slower cmp to TCP Connect scans (>=2 ACK TCP pkts to determine response
+	  as none) Note: 1000 port UDP scan >=20 minutes
+
+Therefore, when using UDP scans, use `--top-ports <number>`.  For example,
+`nmap -sU --top-ports 20 <target>`.
 
 1. If a UDP port doesn't respond to an Nmap scan, what will it be marked as?
 ============================================================================
-:Answer:
+:Answer: open|filtered
 
 2. When a UDP port is closed, by convention the target should send back a "port unreachable" message. Which protocol would it use to do so?""
 =============================================================================================================================================
-:Answer:
+:Answer: ICMP
 
-[Task 8] [Scan Types]
-*********************
+[Task 8] [Scan Types] NULL, FIN, and XMAS
+*****************************************
 
 1. Which of the three shown scan types uses the URG flag?
 =========================================================
@@ -152,15 +205,15 @@ Nmap - Walkthrough
 =====================================================================================
 :Answer:
 
-[Task 9] [Scan Types]
-*********************
+[Task 9] [Scan Types] ICMP Network Scanning
+*******************************************
 
 1. How would you perform a ping sweep on the 172.16.x.x network (Netmask: 255.255.0.0) using Nmap? (CIDR notation)
 ==================================================================================================================
 :Answer:
 
-[Task 10] [NSE Scripts]
-***********************
+[Task 10] [NSE Scripts] Overview
+********************************
 
 1. What language are NSE scripts written in?
 ============================================
@@ -170,16 +223,15 @@ Nmap - Walkthrough
 =========================================================================================
 :Answer:
 
-[Task 11] [NSE Scripts]
-***********************
+[Task 11] [NSE Scripts] Working with the NSE
+********************************************
 
 1. What optional argument can the ftp-anon.nse script take?
 ===========================================================
 :Answer:
 
-[Task 12] [NSE Scripts]
-***********************
-
+[Task 12] [NSE Scripts] Searching for Scripts
+*********************************************
 
 1. Search for "smb" scripts in the /usr/share/nmap/scripts/ directory using either of the demonstrated methods.  What is the filename of the script which determines the underlying OS of the SMB server?
 =========================================================================================================================================================================================================
