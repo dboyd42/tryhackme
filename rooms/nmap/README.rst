@@ -260,32 +260,113 @@ Some NSE Categories:
 
 [Task 11] [NSE Scripts] Working with the NSE
 ********************************************
+:Scripts List: https://nmap.org/nsedoc/
+:Note: Only scripts which target an active service will be activated
+
+.. code-block:: bash
+
+	# Run a script based off its category
+	nmap --script=vuln $TM							# --script=<vuln|safe|etc>
+
+	# Run a specific script
+	nmap --script=http-fileupload-exploiter			# --script=<script-name>
+
+	# Run multiple scripts
+	nmap --script=smb-enum=users,smb-enum-shares	# IFS=','
+
+	# Run script with required arguments			# use --script-args <x,y>
+													# <script-name>.<argument>
+	nmap -p 80 --script http-put --script-args http-put.url='/dav/shell.php',http-put.file='./shell.php'
 
 1. What optional argument can the ftp-anon.nse script take?
 ===========================================================
-:Answer:
+:Answer: maxlist
 
 [Task 12] [NSE Scripts] Searching for Scripts
 *********************************************
 
+Scripts Locations:
+
+	1. https://nmap.org/nsedoc/
+	2. ``/usr/share/nmap/scripts``
+
+Searching for scripts:
+
+.. code-block:: bash
+
+	# access the scripts.db file itself
+	cat /usr/share/nmap/scripts/script.db
+
+	# grep service|category
+	grep 'ftp\|safe' /usr/share/nmap/scripts/script.db
+
+	# ls filename
+	ls -l /usr/share/nmap/scripts/*ftp*
+
+Updating/Installing Scripts:
+
+.. code-block:: bash
+
+	# Update Nmap
+	sudo apt update nmap
+
+	# Manually install script
+	sudo wget -O /usr/share/nmap/scripts/<script-name> https://svn.nmap.org/nmap/scripts/<script-name>.nse
+
+	# Update NSE database (script.db)
+	nmap --script-updatedb
+
 1. Search for "smb" scripts in the /usr/share/nmap/scripts/ directory using either of the demonstrated methods.  What is the filename of the script which determines the underlying OS of the SMB server?
 =========================================================================================================================================================================================================
-:Answer:
+:Answer: smb-os-discovery.nse
+
+Walkthrough:
+
+.. code-block:: bash
+
+	ls -l /usr/share/nmap/scripts/*smb*os*
 
 2. Read through this script. What does it depend on?
 ====================================================
-:Answer:
+:Answer: smb-brute
+
+Hint:
+
+	- Look for `dependencies = {}` in the Lua script.
 
 [Task 13] Firewall Evasion
 **************************
+:FW Evasion: https://nmap.org/book/man-bypass-firewalls-ids.html
+:Note: If you're already on the the LAN, use Nmap's ARP requests to determine host activity.
+
+You typical Windows host will, with its default FW, *block all ICMP packets*.
+Therefore, Nmap will register a host with its FW configuration as dead and not
+bother scanning at all.  Therefore, we use the ``-Pn`` option, which tells Nmap
+to not bother pinging the host before scanning it.  The disadvantage to this
+method is that if the host doesn't actually exist, then we're wasting a lot of
+time scanning every port!
+
+Some FW evasion options:
+
+	- ``-f``: Used to fragment the packets; making them less likely that the
+		packets will be detected by a FW/IDS.
+	- ``--mtu <number>``: same as ``-f``, but providing more control over the
+		MTU size for the packets sent.  *Must be a multiple of 8.*
+	- ``--scan-delay <time>ms``: used to add a delay b/t packets sent.  Useful
+		if the network is unstable, but also for evading any time-based FW/IDS
+		triggers.
+	- ``--badsum``: used to generate an invalid checksum for packets.  Any real
+		TCP/IP stack would drop this packet, however, FWs may potentially
+		respond automatically, wihtout bothering to check the checksum of the
+		packet.  Useful for determining the presence of a FW/IDS.
 
 1. Which simple (and frequently relied upon) protocol is often blocked, requiring the use of the -Pn switch?
 ============================================================================================================
-:Answer:
+:Answer: ICMP
 
 2. [Research] Which Nmap switch allows you to append an arbitrary length of random data to the end of packets?])
 ================================================================================================================
-:Answer:
+:Answer: --data-length
 
 [Task 14] Practical
 *******************
