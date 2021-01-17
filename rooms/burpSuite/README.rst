@@ -211,82 +211,82 @@ Overview of each BurpSuite section:
 =========================================================================================================
 :Answer: [No answer needed]
 
-.. [Task 6] Proxy
-.. **************
-..
-.. Deploy the VM attached to this task!
-..
-.. 1. To complete this task you need to connect to the TryHackMe network through OpenVPN. If you're using the in-browser machine this isn't needed (but make sure you're accessing the machine and using Burp inside the in-browser machine).
-.. ==========================================================================================================================================================================================================================================
-.. :Answer: [No answer needed]
-..
-.. 2. By default, the Burp Suite proxy listens on only one interface. What is it? Use the format of IP:PORT
-.. ========================================================================================================
-.. :Answer: [No answer needed]
-..
-.. 3. In Burp Suite, navigate to the Intercept sub-tab of the Proxy section. Enable Intercept
-.. ==========================================================================================
-.. :Answer: [No answer needed]
-..
-.. 4. Take a look at the actions, which shortcut allows us to forward the request to Repeater?
-.. ===========================================================================================
-.. :Answer: CTRL-R
-..
-.. 5. How about if we wanted to forward our request to Intruder?
-.. =============================================================
-.. :Answer: CTRL-I
-..
-.. 6. What is the name of the first section wherein general web requests (GET/POST) are saved?
-.. ===========================================================================================
-.. :Answer: HTTP history
-..
-.. 7. Defined in RFC 6455 as a low-latency communication protocol that doesn't require HTTP encapsulation, what is the name of the second section of our saved history in Burp Suite? These are commonly used in collaborate application which require real-time updates (Google Docs is an excellent example here).
-.. =================================================================================================================================================================================================================================================================================================================
-.. :Answer: WebSockets history
-..
-.. 8. Before we move onto exploring our target definition, let's take a look at some of the advanced customization we can utilize in the Burp proxy. Move over to the Options section of the Proxy tab and scroll down to Intercept Client Requests. Here we can apply further fine-grained rules to define which requests we would like to intercept. Perhaps the most useful out of the default rules is our only AND rule. What is it's match type?
-.. ===================================================================================================================================================================================================================================================================================================================================================================================================================================================
-.. :Answer: URL
-..
-.. 9. How about it's 'Relationship'? In this situation, enabling this match rule can be incredibly useful following target definition as we can effectively leave intercept on permanently (unless we need to navigate without intercept) as it won't disturb sites which are outside of our scope - something which is particularly nice if we need to Google something in the same browser.
-.. ==========================================================================================================================================================================================================================================================================================================================================================================================
-.. :Answer: Is in target scope
-..
-.. [Task 7] Target Definition
-.. **************************
-..
-.. 1. Before leaving the Proxy tab, switch Intercept to disabled. We'll still see the pages we navigate to in our history and the target tab, just having Intercept constantly stopping our requests for this next bit will get old fast.
-.. ======================================================================================================================================================================================================================================
-.. :Answer: [No answer needed]
-..
-.. 2. Navigate to the Target tab in Burp. In our last task, Proxy, we browsed to the website on our target machine (in this case OWASP Juice Shop). Find our target site in this list and right-click on it. Select 'Add to scope'.
-.. =================================================================================================================================================================================================================================
-.. :Answer: [No answer needed]
-..
-.. 3. Clicking 'Add to scope' will trigger a pop-up. This will stop Burp from sending out-of-scope items to our site map.
-.. ========================================================================================================================================================
-.. :Answer: [No answer needed]
-..
-.. 4. Select 'Yes' to close the popup.
-.. ===================================
-.. :Answer: [No answer needed]
-..
-.. 5. Browse around the rest of the application to build out our page structure in the target tab. Once you've visited most of the pages of the site return to Burp Suite and expand the various levels of the application directory. What do we call this representation of the collective web application?
-.. =========================================================================================================================================================================================================================================================================================================
-.. :Answer: site map
-..
-.. 6. What is the term for browsing the application as a normal user prior to examining it further?
-.. ================================================================================================
-.. :Answer: happy path
-..
-.. 7. One last thing before moving on. Within the target tab, you may have noticed a sub-tab for issue definitions. Click into that now.
-.. =====================================================================================================================================
-.. :Answer: [No answer needed]
-..
-.. 8. The issue definitions found here are how Burp Suite defines issues within reporting. While getting started, these issue definitions can be particularly helpful for understanding and categorizing various findings we might have.  Which poisoning issue arises when an application behind a cache process input that is not included in the cache key?
-.. ===========================================================================================================================================================================================================================================================================================================================================================
-.. :Answer: Web cache poisoning
-..
+[Task 6] Proxy
+**************
+
+Deploy the VM attached to this task!
+
+1. To complete this task you need to connect to the TryHackMe network through OpenVPN. If you're using the in-browser machine this isn't needed (but make sure you're accessing the machine and using Burp inside the in-browser machine).
+==========================================================================================================================================================================================================================================
+:Answer: [No answer needed]
+
+2. By default, the Burp Suite proxy listens on only one interface. What is it? Use the format of IP:PORT
+========================================================================================================
+:Answer: [No answer needed]
+
+3. In Burp Suite, navigate to the Intercept sub-tab of the Proxy section. Enable Intercept
+==========================================================================================
+:Answer: [No answer needed]
+
+4. Take a look at the actions, which shortcut allows us to forward the request to Repeater?
+===========================================================================================
+:Answer: CTRL-R
+
+5. How about if we wanted to forward our request to Intruder?
+=============================================================
+:Answer: CTRL-I
+
+6. What is the name of the first section wherein general web requests (GET/POST) are saved?
+===========================================================================================
+:Answer: HTTP history
+
+7. Defined in RFC 6455 as a low-latency communication protocol that doesn't require HTTP encapsulation, what is the name of the second section of our saved history in Burp Suite? These are commonly used in collaborate application which require real-time updates (Google Docs is an excellent example here).
+=================================================================================================================================================================================================================================================================================================================
+:Answer: WebSockets history
+
+8. Before we move onto exploring our target definition, let's take a look at some of the advanced customization we can utilize in the Burp proxy. Move over to the Options section of the Proxy tab and scroll down to Intercept Client Requests. Here we can apply further fine-grained rules to define which requests we would like to intercept. Perhaps the most useful out of the default rules is our only AND rule. What is it's match type?
+===================================================================================================================================================================================================================================================================================================================================================================================================================================================
+:Answer: URL
+
+9. How about it's 'Relationship'? In this situation, enabling this match rule can be incredibly useful following target definition as we can effectively leave intercept on permanently (unless we need to navigate without intercept) as it won't disturb sites which are outside of our scope - something which is particularly nice if we need to Google something in the same browser.
+==========================================================================================================================================================================================================================================================================================================================================================================================
+:Answer: Is in target scope
+
+[Task 7] Target Definition
+**************************
+
+1. Before leaving the Proxy tab, switch Intercept to disabled. We'll still see the pages we navigate to in our history and the target tab, just having Intercept constantly stopping our requests for this next bit will get old fast.
+======================================================================================================================================================================================================================================
+:Answer: [No answer needed]
+
+2. Navigate to the Target tab in Burp. In our last task, Proxy, we browsed to the website on our target machine (in this case OWASP Juice Shop). Find our target site in this list and right-click on it. Select 'Add to scope'.
+=================================================================================================================================================================================================================================
+:Answer: [No answer needed]
+
+3. Clicking 'Add to scope' will trigger a pop-up. This will stop Burp from sending out-of-scope items to our site map.
+========================================================================================================================================================
+:Answer: [No answer needed]
+
+4. Select 'Yes' to close the popup.
+===================================
+:Answer: [No answer needed]
+
+5. Browse around the rest of the application to build out our page structure in the target tab. Once you've visited most of the pages of the site return to Burp Suite and expand the various levels of the application directory. What do we call this representation of the collective web application?
+=========================================================================================================================================================================================================================================================================================================
+:Answer: site map
+
+6. What is the term for browsing the application as a normal user prior to examining it further?
+================================================================================================
+:Answer: happy path
+
+7. One last thing before moving on. Within the target tab, you may have noticed a sub-tab for issue definitions. Click into that now.
+=====================================================================================================================================
+:Answer: [No answer needed]
+
+8. The issue definitions found here are how Burp Suite defines issues within reporting. While getting started, these issue definitions can be particularly helpful for understanding and categorizing various findings we might have.  Which poisoning issue arises when an application behind a cache process input that is not included in the cache key?
+===========================================================================================================================================================================================================================================================================================================================================================
+:Answer: Web cache poisoning
+
 .. [Task 8] Puttin' it on Repeat[er]
 .. *********************************
 ..
