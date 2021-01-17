@@ -7,6 +7,8 @@ Nmap - Walkthrough
 :Tasks: 15
 :Learning Path: PenTest+
 :Category: Penetration Testing Tools
+:Prerequisites: https://tryhackme.com/room/introtonetworking
+:Prerequisites: https://tryhackme.com/room/wireshark
 
 [Task 1] Deploy
 ***************
