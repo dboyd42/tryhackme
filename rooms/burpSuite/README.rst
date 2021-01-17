@@ -312,7 +312,7 @@ Additional Information
 **********************
 
 Intruder
---------
+========
 
 Allows repeat testing nce a 'proof of conecpt' has been established.
 
