@@ -8,15 +8,15 @@ BurpSuite
 :Category: Penetration Testing Tools
 :Prerequsites: https://tryhackme.com/room/webfundamentals
 
-.. Documents
-.. *********
-..
-.. xplatform-shoretened.txt
-.. ========================
-.. :Summary: a shortened list of fuzzdb SQLi platform detection list
-.. :full list: https://github.com/fuzzdb-project/fuzzdb/blocb/master/attack/sql-injection/detect/xplatform.txt
-.. :Used in: Intruder (Task9)
-..
+Documents
+*********
+
+xplatform-shoretened.txt
+========================
+:Summary: a shortened list of fuzzdb SQLi platform detection list
+:full list: https://github.com/fuzzdb-project/fuzzdb/blocb/master/attack/sql-injection/detect/xplatform.txt
+:Used in: Intruder (Task9)
+
 .. [Task 1] Intro
 .. **************
 ..
