@@ -32,7 +32,7 @@ This room will require `OWASP Juice Shop (GitHub)
 *********************
 :Requirements: Burpsuite
 
-1. If you'll be installing Burp (as it's commonly referred to) from scratch, you'll need to first visit this link: https://portswigger.net/burp/communitydownload)
+1. If you'll be installing Burp (as it's commonly referred to) from scratch, you'll need to first visit this link: `BurpSuite <https://portswigger.net/burp/communitydownload>`_
 ==================================================================================================================================================================
 :Answer: [No answer needed]
 
@@ -40,7 +40,7 @@ This room will require `OWASP Juice Shop (GitHub)
 ===============================================================================================================================
 :Answer: [No answer needed]
 
-3. Burp Suite requires Java JRE in order to run. Download and install Java here: https://www.java.com/en/download/
+3. Burp Suite requires Java JRE in order to run. Download and install Java here: `Java <https://www.java.com/en/download/>`_
 ==================================================================================================================
 :Answer: [No answer needed]
 
