@@ -46,7 +46,7 @@ This room will require `OWASP Juice Shop (GitHub)
 
 [Task 3] Gettin' [CA] Certified!
 ********************************
-:Requirements: `Foxy Proxy <https://addons.mozilla.org/en-US/firefox/addon/foxyproxy-standard/`_
+:Requirements: `Foxy Proxy <https://addons.mozilla.org/en-US/firefox/addon/foxyproxy-standard/>`_
 
 1. Launch Burp!
 ===============
