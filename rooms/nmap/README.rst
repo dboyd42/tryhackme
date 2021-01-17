@@ -2,9 +2,11 @@ Nmap - Walkthrough
 ##################
 :Author: David Boyd
 :Date: 2021-01-15
-:Location: Learning-Paths/Pentest+/Penetration-Testing-Tools/Nmap
-:Room Version: 2
+:Room: Nmap
+:Version: 2
 :Tasks: 15
+:Learning Path: PenTest+
+:Category: Penetration Testing Tools
 
 [Task 1] Deploy
 ***************
