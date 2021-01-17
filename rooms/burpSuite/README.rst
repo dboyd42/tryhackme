@@ -344,7 +344,6 @@ Sniper
 	payload (items from our wordlist) in each position in turn.
 	This uses only one set of payloads (one wordlist)
 
-
 Battering ram
 	Similar to Sniper,
 	Battering Ram uses only one set of payloads.  Unlike Sniper,
@@ -376,6 +375,7 @@ Cluster bomb
 | positions = fields (username, password, whatever, etc.)
 | payload = item in wordlist
 | set of payloads = one wordlist
+|
 
 +---------------+-----------------------------+-----------------------------------------------+
 | Attack Type   | Payload (nSets/position)    | Iteration (set/position)                      |
