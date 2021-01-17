@@ -308,16 +308,16 @@ Deploy the VM attached to this task!
 [Task 14] Extra Credit
 **********************
 
-.. Additional Information
-.. **********************
-..
-.. Intruder
-.. --------
-..
-.. Allows repeat testing nce a 'proof of conecpt' has been established.
-..
-.. **Common Usage:**
-..
+Additional Information
+**********************
+
+Intruder
+--------
+
+Allows repeat testing nce a 'proof of conecpt' has been established.
+
+**Common Usage:**
+
 .. 	- enumerating:
 .. 		- identifers (usernames, etc)
 .. 		- cycling thorugh predicatble session/password recovery tokens
