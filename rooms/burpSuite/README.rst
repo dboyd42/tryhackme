@@ -17,33 +17,33 @@ xplatform-shoretened.txt
 :full list: https://github.com/fuzzdb-project/fuzzdb/blocb/master/attack/sql-injection/detect/xplatform.txt
 :Used in: Intruder (Task9)
 
-.. [Task 1] Intro
-.. **************
-..
-.. This room will require `OWASP Juice Shop (GitHub)
-.. <https://github.com/bkimminich/juice-shop#from-sources>`_ or `OWASP Juice Shop
-.. (TryHackMe) <https://tryhackme.com/room/owaspjuiceshop>`_
-..
-.. 1. Read the overview and continue on into installation!
-.. =======================================================
-.. :Answer: [No answer needed]
-..
-.. [Task 2] Installation
-.. *********************
-.. :Requirements: Burpsuite
-..
-.. 1. If you'll be installing Burp (as it's commonly referred to) from scratch, you'll need to first visit this link: https://portswigger.net/burp/communitydownload)
-.. ==================================================================================================================================================================
-.. :Answer: [No answer needed]
-..
-.. 2. Once you've reached the Port Swigger downloads page, go ahead and download the appropriate version for your operating system
-.. ===============================================================================================================================
-.. :Answer: [No answer needed]
-..
-.. 3. Burp Suite requires Java JRE in order to run. Download and install Java here: https://www.java.com/en/download/
-.. ==================================================================================================================
-.. :Answer: [No answer needed]
-..
+[Task 1] Intro
+**************
+
+This room will require `OWASP Juice Shop (GitHub)
+<https://github.com/bkimminich/juice-shop#from-sources>`_ or `OWASP Juice Shop
+(TryHackMe) <https://tryhackme.com/room/owaspjuiceshop>`_
+
+1. Read the overview and continue on into installation!
+=======================================================
+:Answer: [No answer needed]
+
+[Task 2] Installation
+*********************
+:Requirements: Burpsuite
+
+1. If you'll be installing Burp (as it's commonly referred to) from scratch, you'll need to first visit this link: https://portswigger.net/burp/communitydownload)
+==================================================================================================================================================================
+:Answer: [No answer needed]
+
+2. Once you've reached the Port Swigger downloads page, go ahead and download the appropriate version for your operating system
+===============================================================================================================================
+:Answer: [No answer needed]
+
+3. Burp Suite requires Java JRE in order to run. Download and install Java here: https://www.java.com/en/download/
+==================================================================================================================
+:Answer: [No answer needed]
+
 .. [Task 3] Gettin' [CA] Certified!
 .. ********************************
 .. :Requirements: `Foxy Proxy <https://addons.mozilla.org/en-US/firefox/addon/foxyproxy-standard/`_
