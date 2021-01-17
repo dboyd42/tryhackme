@@ -254,6 +254,7 @@ Deploy the VM attached to this task!
 
 [Task 7] Target Definition
 **************************
+:URL REF: `Target <https://portswigger.net/burp/documentation/desktop/tools/target>`_
 
 1. Before leaving the Proxy tab, switch Intercept to disabled. We'll still see the pages we navigate to in our history and the target tab, just having Intercept constantly stopping our requests for this next bit will get old fast.
 ======================================================================================================================================================================================================================================
@@ -289,6 +290,45 @@ Deploy the VM attached to this task!
 
 [Task 8] Puttin' it on Repeat[er]
 *********************************
+:URL REF: `Repeater <https://portswigger.net/burp/documentation/desktop/tools/repeater>`_
+
+1. To start, click 'Account' (this might be 'Login' depending on the version of Juice Shop) in the top right corner of Juice Shop in order to navigate to the login page.
+=========================================================================================================================================================================
+:Answer: [No answer needed]
+
+2. Try logging in with invalid credentials. What error is generated when login fails?
+=====================================================================================
+:Answer: Invalid email or password
+
+3. But wait, didn't we want to send that request to Repeater? Even though we didn't send it to Repeater initially via intercept, we can still find the request in our history. Switch over to the HTTP sub-tab of Proxy. Look through these requests until you find our failed login attempt. Right-click on this request and send it to Repeater and then send it to Intruder, too!
+====================================================================================================================================================================================================================================================================================================================================================================================
+:Answer: [No answer needed]
+
+4. Now that we've sent the request to Repeater, let's try adjusting the request such that we are sending a single quote (') as both the email and password.  What error is generated from this request?
+=======================================================================================================================================================================================================
+:Answer: SQLITE_ERROR
+
+5. Now that we've leveraged Repeater to gain proof of concept that Juice Shop's login is vulnerable to SQLi, let's try something a little more mischievous and attempt to leave a devastating zero-star review. First, click on the drawer button in the top-left of the application. If this isn't present for you, just skip to the next question.
+====================================================================================================================================================================================================================================================================================================================================================
+:Answer: [No answer needed]
+
+6. Next, click on 'Customer Feedback' (depending on the version of Juice Shop this also might be along the top of the page next to 'Login' under 'Contact Us')
+==============================================================================================================================================================
+:Answer: [No answer needed]
+
+7. With the Burp proxy on submit feedback. Once this is done, find the POST request in your HTTP History in Burp and send it to Repeater.
+=========================================================================================================================================
+:Answer: [No answer needed]
+
+8. What field do we have to modify in order to submit a zero-star review?
+=========================================================================
+:Answer:  rating
+
+9. Submit a zero-star review and complete this challenge in Juice Shop!
+=======================================================================
+:Answer: [No answer needed]
+
+
 
 [Task 9] Help! There's an Intruder!
 ***********************************
