@@ -129,7 +129,7 @@ Click on the FoxyProxy extension icon again and select 'Burp'
 Overview
 --------
 
-Install Burpsuite CA Certificate on Web Browser (Firefox)
+Installing Burpsuite CA Certificate on Web Browser (Firefox)
 
 	- Web Browser > http://localhost:8080 (127.0.0.1:8080)
 	- Download CA Certificate
@@ -138,79 +138,79 @@ Install Burpsuite CA Certificate on Web Browser (Firefox)
 	- [Checkbox] Trust the CA ti identify web sites
 	- [Checkbox] Trust the CA ti identify email users
 
-.. [Task 4] Burpsuite Features
-.. ***************************
-..
-.. payload
-.. 	items form our word list
-..
-.. set of payloads
-.. 	one wordlist
-..
-.. Overview of each BurpSuite section:
-.. ===================================
-..
-.. 	- **Proxy** - What allows us to funnel traffic through Burp Suite for further analysis
-.. 	- **Target** - How we set the scope of our project. We can also use this to effectively create a site map of the application we are testing.
-.. 	- **Intruder** - Incredibly powerful tool for everything from field fuzzing to credential stuffing and more
-.. 	- **Repeater** - Allows us to 'repeat' requests that have previously been made with or without modification. Often used in a precursor step to fuzzing with the aforementioned Intruder
-.. 	- **Sequencer** - Analyzes the 'randomness' present in parts of the web app which are intended to be unpredictable. This is commonly used for testing session cookies
-.. 	- **Decoder** - As the name suggests, Decoder is a tool that allows us to perform various transforms on pieces of data. These transforms vary from decoding/encoding to various bases or URL encoding.
-.. 	- **Comparer** - Comparer as you might have guessed is a tool we can use to compare different responses or other pieces of data such as site maps or proxy histories (awesome for access control issue testing). This is very similar to the Linux tool diff.
-.. 	- **Extender** - Similar to adding mods to a game like Minecraft, Extender allows us to add components such as tool integrations, additional scan definitions, and more!
-.. 	- **Scanner** - Automated web vulnerability scanner that can highlight areas of the application for further manual investigation or possible exploitation with another section of Burp. This feature, while not in the community edition of Burp Suite, is still a key facet of performing a web application test.)
-..
-.. 1. Which tool in Burp Suite can we use to perform a 'diff' on responses and other pieces of data?
-.. =================================================================================================
-.. :Answer: Comparer
-..
-.. 2. What tool could we use to analyze randomness in different pieces of data such as password reset tokens?
-.. ==========================================================================================================
-.. :Answer: Sequencer
-..
-.. 3. Which tool can we use to set the scope of our project?
-.. =========================================================
-.. :Answer: Target
-..
-.. 4. While only available in the premium versions of Burp Suite, which tool can we use to automatically identify different vulnerabilities in the application we are examining?
-.. =============================================================================================================================================================================
-.. :Answer: Scanner
-..
-.. 5. Encoding or decoding data can be particularly useful when examining URL parameters or protections on a form, which tool allows us to do just that?
-.. =====================================================================================================================================================
-.. :Answer: Decorder
-..
-.. 6. Which tool allows us to redirect our web traffic into Burp for further examination?
-.. ======================================================================================
-.. :Answer: Proxy
-..
-.. 7. Simple in concept but powerful in execution, which tool allows us to reissue requests?
-.. =========================================================================================
-.. :Answer: Repeater
-..
-.. 8. With four modes, which tool in Burp can we use for a variety of purposes such as field fuzzing?
-.. ==================================================================================================
-.. :Answer: Intruder
-..
-.. 9. Last but certainly not least, which tool allows us to modify Burp Suite via the addition of extensions?
-.. ==========================================================================================================
-.. :Answer: Extender
-..
-.. [Task 5] Engage in Dark Mode
-.. ****************************
-..
-.. 1. With Burp Suite launched, let's first navigate to the 'User options' tab.
-.. ============================================================================
-.. :Answer: [No answer needed]
-..
-.. 2. Now, click on the 'Look and feel' drop-down menu. Select 'Darcula'.
-.. =======================================================================
-.. :Answer: [No answer needed]
-..
-.. 3. Finally, close and relaunch Burp Suite to have dark theme (or whichever theme you picked) take effect.
-.. =========================================================================================================
-.. :Answer: [No answer needed]
-..
+[Task 4] Burpsuite Features
+***************************
+
+payload
+	items form our word list
+
+set of payloads
+	one wordlist
+
+Overview of each BurpSuite section:
+===================================
+
+	- **Proxy** - What allows us to funnel traffic through Burp Suite for further analysis
+	- **Target** - How we set the scope of our project. We can also use this to effectively create a site map of the application we are testing.
+	- **Intruder** - Incredibly powerful tool for everything from field fuzzing to credential stuffing and more
+	- **Repeater** - Allows us to 'repeat' requests that have previously been made with or without modification. Often used in a precursor step to fuzzing with the aforementioned Intruder
+	- **Sequencer** - Analyzes the 'randomness' present in parts of the web app which are intended to be unpredictable. This is commonly used for testing session cookies
+	- **Decoder** - As the name suggests, Decoder is a tool that allows us to perform various transforms on pieces of data. These transforms vary from decoding/encoding to various bases or URL encoding.
+	- **Comparer** - Comparer as you might have guessed is a tool we can use to compare different responses or other pieces of data such as site maps or proxy histories (awesome for access control issue testing). This is very similar to the Linux tool diff.
+	- **Extender** - Similar to adding mods to a game like Minecraft, Extender allows us to add components such as tool integrations, additional scan definitions, and more!
+	- **Scanner** - Automated web vulnerability scanner that can highlight areas of the application for further manual investigation or possible exploitation with another section of Burp. This feature, while not in the community edition of Burp Suite, is still a key facet of performing a web application test.)
+
+1. Which tool in Burp Suite can we use to perform a 'diff' on responses and other pieces of data?
+=================================================================================================
+:Answer: Comparer
+
+2. What tool could we use to analyze randomness in different pieces of data such as password reset tokens?
+==========================================================================================================
+:Answer: Sequencer
+
+3. Which tool can we use to set the scope of our project?
+=========================================================
+:Answer: Target
+
+4. While only available in the premium versions of Burp Suite, which tool can we use to automatically identify different vulnerabilities in the application we are examining?
+=============================================================================================================================================================================
+:Answer: Scanner
+
+5. Encoding or decoding data can be particularly useful when examining URL parameters or protections on a form, which tool allows us to do just that?
+=====================================================================================================================================================
+:Answer: Decorder
+
+6. Which tool allows us to redirect our web traffic into Burp for further examination?
+======================================================================================
+:Answer: Proxy
+
+7. Simple in concept but powerful in execution, which tool allows us to reissue requests?
+=========================================================================================
+:Answer: Repeater
+
+8. With four modes, which tool in Burp can we use for a variety of purposes such as field fuzzing?
+==================================================================================================
+:Answer: Intruder
+
+9. Last but certainly not least, which tool allows us to modify Burp Suite via the addition of extensions?
+==========================================================================================================
+:Answer: Extender
+
+[Task 5] Engage in Dark Mode
+****************************
+
+1. With Burp Suite launched, let's first navigate to the 'User options' tab.
+============================================================================
+:Answer: [No answer needed]
+
+2. Now, click on the 'Look and feel' drop-down menu. Select 'Darcula'.
+=======================================================================
+:Answer: [No answer needed]
+
+3. Finally, close and relaunch Burp Suite to have dark theme (or whichever theme you picked) take effect.
+=========================================================================================================
+:Answer: [No answer needed]
+
 .. [Task 6] Proxy
 .. **************
 ..
