@@ -44,100 +44,100 @@ This room will require `OWASP Juice Shop (GitHub)
 ==================================================================================================================
 :Answer: [No answer needed]
 
-.. [Task 3] Gettin' [CA] Certified!
-.. ********************************
-.. :Requirements: `Foxy Proxy <https://addons.mozilla.org/en-US/firefox/addon/foxyproxy-standard/`_
-..
-.. 1. Launch Burp!
-.. ===============
-.. :Answer: [No answer needed]
-..
-.. 2. Once this pops-up, click 'Temporary project' and then 'Next'.
-.. ================================================================
-.. :Answer: [No answer needed]
-..
-.. 3. Next, we'll be prompted to ask for what configuration we'd like to use. For now, select 'Use Burp defaults'.
-.. ===============================================================================================================
-.. :Answer: [No answer needed]
-..
-.. 4. Finally, let's go ahead and Start Burp! Click 'Start Burp' now!
-.. ==================================================================
-.. :Answer: [No answer needed]
-..
-.. 5. Since we now have Burp Suite running, the proxy service will have started by default with it. In order to fully leverage this proxy, we'll have to install the CA certificate included with Burp Suite (otherwise we won't be able to load anything with SSL). To do this, let's launch Firefox now!)
-.. ========================================================================================================================================================================================================================================================================================================
-.. :Answer: [No answer needed]
-..
-.. Note: you can use any browser as long as you set up a forward proxy for it.
-..
-.. 6. Navigate to the following link to install FoxyProxy Standard. Go ahead and install this now!
-.. ===============================================================================================
-.. :Answer: [No answer needed]
-..
-.. 7. Next, we'll move onto adding the certificate for Burp!
-.. =========================================================
-.. :Answer: [No answer needed]
-..
-.. Setup Web Browser Proxy to proxy Burpsuite
-.. ------------------------------------------
-..
-.. **Foxy Proxy > Options > Add**
-..
-.. +------------------+-----------+
-.. | Setting          | Value     |
-.. +==================+===========+
-.. | Title            | Burp      |
-.. +------------------+-----------+
-.. | Proxy Type       | HTTP      |
-.. +------------------+-----------+
-.. | Proxy IP address | 127.0.0.1 |
-.. +------------------+-----------+
-.. | Port             | 8080      |
-.. +------------------+-----------+
-..
-.. **Save**
-..
-.. Web Browser > Proxy Extension > burp (enable)
-.. ---------------------------------------------
-..
-.. Click on the FoxyProxy extension icon again and select 'Burp'
-..
-.. 8. With Firefox, navigate to the following address: http://localhost:8080
-.. =========================================================================
-.. :Answer: [No answer needed]
-..
-.. 9. Click on 'CA Certificate' in the top right to download and save the CA Certificate
-.. =====================================================================================
-.. :Answer: [No answer needed]
-..
-.. 10. Click on 'View Certificates'
-.. ================================
-.. :Answer: [No answer needed]
-..
-.. 11. Next, in the Authorities tab click on 'Import'
-.. ==================================================
-.. :Answer: [No answer needed]
-..
-.. 12. Navigate to where you saved the CA Certificate we downloaded previously. Click 'OK' once you've selected this certificate.
-.. ==============================================================================================================================
-.. :Answer: [No answer needed]
-..
-.. 13. Select 'OK' once you've done this. Congrats, we've now installed the Burp Suite CA Certificate!
-.. ===================================================================================================
-.. :Answer: [No answer needed]
-..
-.. Overview
-.. --------
-..
-.. Install Burpsuite CA Certificate on Web Browser (Firefox)
-..
-.. 	- Web Browser > http://localhost:8080 (127.0.0.1:8080)
-.. 	- Download CA Certificate
-.. 	- Menu > Preferences > Find in Preferences: cert
-.. 	- View Certificates > Import > cacert.der
-.. 	- [Checkbox] Trust the CA ti identify web sites
-.. 	- [Checkbox] Trust the CA ti identify email users
-..
+[Task 3] Gettin' [CA] Certified!
+********************************
+:Requirements: `Foxy Proxy <https://addons.mozilla.org/en-US/firefox/addon/foxyproxy-standard/`_
+
+1. Launch Burp!
+===============
+:Answer: [No answer needed]
+
+2. Once this pops-up, click 'Temporary project' and then 'Next'.
+================================================================
+:Answer: [No answer needed]
+
+3. Next, we'll be prompted to ask for what configuration we'd like to use. For now, select 'Use Burp defaults'.
+===============================================================================================================
+:Answer: [No answer needed]
+
+4. Finally, let's go ahead and Start Burp! Click 'Start Burp' now!
+==================================================================
+:Answer: [No answer needed]
+
+5. Since we now have Burp Suite running, the proxy service will have started by default with it. In order to fully leverage this proxy, we'll have to install the CA certificate included with Burp Suite (otherwise we won't be able to load anything with SSL). To do this, let's launch Firefox now!)
+========================================================================================================================================================================================================================================================================================================
+:Answer: [No answer needed]
+
+Note: you can use any browser as long as you set up a forward proxy for it.
+
+6. Navigate to the following link to install FoxyProxy Standard. Go ahead and install this now!
+===============================================================================================
+:Answer: [No answer needed]
+
+7. Next, we'll move onto adding the certificate for Burp!
+=========================================================
+:Answer: [No answer needed]
+
+Setup Web Browser Proxy to proxy Burpsuite
+------------------------------------------
+
+**Foxy Proxy > Options > Add**
+
++------------------+-----------+
+| Setting          | Value     |
++==================+===========+
+| Title            | Burp      |
++------------------+-----------+
+| Proxy Type       | HTTP      |
++------------------+-----------+
+| Proxy IP address | 127.0.0.1 |
++------------------+-----------+
+| Port             | 8080      |
++------------------+-----------+
+
+**Save**
+
+Web Browser > Proxy Extension > burp (enable)
+---------------------------------------------
+
+Click on the FoxyProxy extension icon again and select 'Burp'
+
+8. With Firefox, navigate to the following address: http://localhost:8080
+=========================================================================
+:Answer: [No answer needed]
+
+9. Click on 'CA Certificate' in the top right to download and save the CA Certificate
+=====================================================================================
+:Answer: [No answer needed]
+
+10. Click on 'View Certificates'
+================================
+:Answer: [No answer needed]
+
+11. Next, in the Authorities tab click on 'Import'
+==================================================
+:Answer: [No answer needed]
+
+12. Navigate to where you saved the CA Certificate we downloaded previously. Click 'OK' once you've selected this certificate.
+==============================================================================================================================
+:Answer: [No answer needed]
+
+13. Select 'OK' once you've done this. Congrats, we've now installed the Burp Suite CA Certificate!
+===================================================================================================
+:Answer: [No answer needed]
+
+Overview
+--------
+
+Install Burpsuite CA Certificate on Web Browser (Firefox)
+
+	- Web Browser > http://localhost:8080 (127.0.0.1:8080)
+	- Download CA Certificate
+	- Menu > Preferences > Find in Preferences: cert
+	- View Certificates > Import > cacert.der
+	- [Checkbox] Trust the CA ti identify web sites
+	- [Checkbox] Trust the CA ti identify email users
+
 .. [Task 4] Burpsuite Features
 .. ***************************
 ..
