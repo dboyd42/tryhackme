@@ -393,20 +393,39 @@ Some FW evasion options:
 
 [WSL2] Kali
 ^^^^^^^^^^^
-:ERROR 1: ``-sn`` consists of an ICMP echo request, yet non-sudo returns host is up.
+:1-ERROR: ``-sn`` consists of an ICMP echo request, yet non-sudo returns host is up.
+:1-SOLUTION: use ``-Pn`` to bypass ICMP echo request
 
 .. code-block:: bash
 
+	# perform host discovery while bypassing ICMP echo request
+	nmap -Pn -T5 -vv $TM
+	  > Host discovery disabled (-Pn). All addresses will be marked 'up' and scan times will be slower.
+	  > ...
+	  > Scanning 10.10.149.100 [1000 ports]
+	  > Discovered open port 135/tcp on 10.10.149.100
+	  > Discovered open port 21/tcp on 10.10.149.100
+	  > Discovered open port 53/tcp on 10.10.149.100
+	  > Discovered open port 3389/tcp on 10.10.149.100
+	  > Discovered open port 80/tcp on 10.10.149.100
+	  > ...
+	  > Nmap done: 1 IP address (1 host up) scanned in 17.78 seconds
+
+.. code-block:: bash
+
+	# 1-ERROR (false negative)
 	ping -c5 $TM
 	  > --- 10.10.254.230 ping statistics ---
 	  > 5 packets transmitted, 0 received, 100% packet loss, time 4140ms
 
+	# 1-ERROR: (true positive), ?=non-sudo is correct, but sudo isn't, why?
 	nmap -sn $TM
 	  > Starting Nmap 7.91 ( https://nmap.org ) at 2021-01-15 23:18 CST
 	  > Nmap scan report for 10.10.254.230
 	  > Host is up (0.24s latency).
 	  > Nmap done: 1 IP address (1 host up) scanned in 1.38 seconds
 
+	# 1-ERROR (false negative)
 	sudo nmap -sn $TM
 	  > Starting Nmap 7.91 ( https://nmap.org ) at 2021-01-15 23:18 CST
 	  > Note: Host seems down. If it is really up, but blocking our ping probes, try -Pn
@@ -453,6 +472,41 @@ Some FW evasion options:
 =======================================================================================================
 :Answer: 5
 
+[Walkthrough]
+-------------
+
+WSL2
+^^^^
+
+.. code-block:: bash
+
+	nmap -Pn -p 1-5000 -T5 -vv $TM
+	  > Host discovery disabled (-Pn). All addresses will be marked 'up' and scan times will be slower.
+	  > Starting Nmap 7.91 ( https://nmap.org ) at 2021-01-16 17:55 CST
+	  > Initiating Parallel DNS resolution of 1 host. at 17:55
+	  > Completed Parallel DNS resolution of 1 host. at 17:55, 1.16s elapsed
+	  > Initiating Connect Scan at 17:55
+	  > Scanning 10.10.149.100 [5000 ports]
+	  > Discovered open port 21/tcp on 10.10.149.100
+	  > Discovered open port 3389/tcp on 10.10.149.100
+	  > Discovered open port 53/tcp on 10.10.149.100
+	  > Discovered open port 135/tcp on 10.10.149.100
+	  > Discovered open port 80/tcp on 10.10.149.100
+	  > Completed Connect Scan at 17:56, 60.15s elapsed (5000 total ports)
+	  > Nmap scan report for 10.10.149.100
+	  > Host is up, received user-set (0.21s latency).
+	  > Scanned at 2021-01-16 17:55:56 CST for 60s
+	  > Not shown: 4995 filtered ports
+	  > Reason: 4995 no-responses
+	  > PORT     STATE SERVICE       REASON
+	  > 21/tcp   open  ftp           syn-ack
+	  > 53/tcp   open  domain        syn-ack
+	  > 80/tcp   open  http          syn-ack
+	  > 135/tcp  open  msrpc         syn-ack
+	  > 3389/tcp open  ms-wbt-server syn-ack
+	  > Read data files from: /usr/bin/../share/nmap
+	  > Nmap done: 1 IP address (1 host up) scanned in 61.40 seconds
+
 5. Open Wireshark (see Cryillic's Wireshark Room for instructions) and perform a TCP Connect scan against port 80 on the target, monitoring the results. Make sure you understand what's going on.
 ==================================================================================================================================================================================================
 :Answer: [No answer needed]
@@ -460,6 +514,30 @@ Some FW evasion options:
 6. Deploy the ftp-anon script against the box. Can Nmap login successfully to the FTP server on port 21? (Y/N)
 ==============================================================================================================
 :Answer: N
+
+[Walkthrough]
+-------------
+
+WSL2
+^^^^
+
+.. code-block:: bash
+
+	grep 'ftp\|anon' /usr/share/nmap/scripts/script.db
+	  > Entry { filename = "ftp-anon.nse", catergores = { "auth", "default", "safe", } }
+	  > ...
+	nmap -Pn -p21 --script=ftp=anon.nse -vv $TM
+	  > Starting Nmap 7.91 ( https://nmap.org ) at 2021-01-16 18:02 CST
+	  > NSE: Loaded 1 scripts for scanning.
+	  > NSE: Script Pre-scanning.
+	  > NSE: Starting runlevel 1 (of 1) scan.
+	  > ...
+	  > PORT   STATE SERVICE REASON
+	  > 21/tcp open  ftp     syn-ack
+	  > | ftp-anon: Anonymous FTP login allowed (FTP code 230)
+	  > | _Can't get directory listing: TIMEOUT
+	  > ...
+	  > Nmap done: 1 IP address (1 host up) scanned in 33.18 seconds
 
 [Task 15] Conclusion
 ********************
