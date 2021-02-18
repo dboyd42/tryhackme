@@ -16,6 +16,17 @@ Event logs
 	complex systems, particularly in applications with little user interaction
 	(such as server applications).
 
+	[+] Event logs can also be usefule to combine log file entries from
+	multiple sources.  This approach, in combination with statistical analysis,
+	may yield correlations between seemingly unrelated events on different
+	servers.
+
+SIEMs (Security Information and Event Managment): Splunk, Elastic
+	allows you to query the logs from multiple devices instead of manually
+	connecting to a single device to view its logs.
+
+Syslog
+	Linux and macOS name/version for their logging system.
 
 
 [Task 2] Event Viewer
