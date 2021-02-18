@@ -58,6 +58,7 @@ file extension typically reside in `C:\Windows\System32\winevt\Logs`.
 -------------------------------------------
 
 	1. **Event Viewer** (GUI-based application)
+
 		- CMD/PS: `eventvwr.msc`
 
 	2. **Wevtutil.exe** (CLI tool)
@@ -185,7 +186,7 @@ Right Pane (Actions)
 	useful if the remote machine can't be accessed.  The logs can be provided
 	to the analyst.
 
-`Create Custom View` ~== `Filter Current Log`
+**Create Custom View** ~== **Filter Current Log**
 
 `[Rt-click] Event Viewer (Local) > Connect to Another Computer...`
 	view event logs from another computer.
