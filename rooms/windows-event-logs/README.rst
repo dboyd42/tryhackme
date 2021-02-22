@@ -235,6 +235,113 @@ getting the correct answer.
 
 [Task 3] wevtutil.exe
 *********************
+:Purpose: Write scripts to filter logs.
+
+wevtutil.exe
+	enables you to retrieve information about event logs and publishers.  You
+	can also use this command to un/install event manifests, run queries, and
+	to export/archive/clear logs.
+
+.. code-block:: PowerShell
+
+	# help files
+	wevtutil.exe /?
+
+	# query-events help files
+	wevtutil.exe qe /?
+
+Common Commands
+===============
+
++-----+--------------------+----------------------------------------------------+
+| Cmd | Name               | Description                                        |
++=====+====================+====================================================+
+| el  | enum-logs          | list log names.                                    |
++-----+--------------------+----------------------------------------------------+
+| gl  | get-log            | Get log configuration information.                 |
++-----+--------------------+----------------------------------------------------+
+| sl  | set-log            | Modify configuration of a log.                     |
++-----+--------------------+----------------------------------------------------+
+| ep  | enum-publishers    | List event publishers.                             |
++-----+--------------------+----------------------------------------------------+
+| gp  | get-publisher      | Get publisher configuration information.           |
++-----+--------------------+----------------------------------------------------+
+| im  | install-manifest   | Install event publishers and logs from manifest.   |
++-----+--------------------+----------------------------------------------------+
+| um  | uninstall-manifest | Uninstall event publishers and logs from manifest. |
++-----+--------------------+----------------------------------------------------+
+| qe  | query-events       | Query events from a log or log file.               |
++-----+--------------------+----------------------------------------------------+
+| gli | get-log-info       | Get log status information.                        |
++-----+--------------------+----------------------------------------------------+
+| epl | export-log         | Export a log.                                      |
++-----+--------------------+----------------------------------------------------+
+| al  | archive-log        | Archive an exported log.                           |
++-----+--------------------+----------------------------------------------------+
+| cl  | clear-log          | Clear a log.                                       |
++-----+--------------------+----------------------------------------------------+
+
+Common options
+==============
+
+.. code-block:: PowerShell
+
+	/{r | remote}:VALUE
+		If specified, run the command on a remote computer. VALUE is the remote
+		computer name. Options /im and /um do not support remote operations.
+
+	/{u | username}:VALUE
+		Specify a different user to log on to the remote computer. VALUE is a user name
+		in the form domain\user or user. Only applicable when option /r is specified.
+
+	/{p | password}:VALUE
+		Password for the specified user. If not specified, or if VALUE is "*", the user
+		will be prompted to enter a password. Only applicable when the /u option is
+		specified.
+
+	/{a | authentication}:[Default|Negotiate|Kerberos|NTLM]
+		Authentication type for connecting to remote computer. The default is
+		Negotiate.
+
+	/{uni | unicode}:[true|false]
+		Display output in Unicode. If true, then output is in Unicode.
+
+Questions
+=========
+
+How many log names are in the machine?
+---------------------------------------
+:Answer:
+
+What is the definition for the query-events command?
+----------------------------------------------------
+:Answer:
+
+What option would you use to provide a path to a log file?
+----------------------------------------------------------
+:Answer:
+
+What is the VALUE for /q?
+-------------------------
+:Answer:
+
+The questions below are based on this command: wevtutil qe Application /c:3 /rd:true /f:text
+--------------------------------------------------------------------------------------------
+:Answer:
+
+What is the log name?
+---------------------
+:Answer:
+
+What is the /rd option for?
+---------------------------
+:Answer:
+
+What is the /c option for?
+--------------------------
+:Answer:
+
+
 
 [Task 4] Get-WinEvent
 *********************
