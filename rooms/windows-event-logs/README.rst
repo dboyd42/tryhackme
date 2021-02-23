@@ -311,37 +311,64 @@ Questions
 
 How many log names are in the machine?
 ---------------------------------------
-:Answer:
+:Answer: 1071
+
+.. code-block:: PowerShell
+
+	wevtutil.exe el | Measure-Object -line
 
 What is the definition for the query-events command?
 ----------------------------------------------------
-:Answer:
+:Answer: Read events from an event log, log file or using structred query.
+
+.. code-block:: PowerShell
+
+	# Read first line
+	wevtutil.exe qe /?
 
 What option would you use to provide a path to a log file?
 ----------------------------------------------------------
-:Answer:
+:Answer: /lf:true
+
+.. code-block:: PowerShell
+
+	wevtutil.exe qe /?
+	# /{lf | logile}:[true|false]
+	# If true, <PATH> is the full path to a file that contains a structured
+	# query.
 
 What is the VALUE for /q?
 -------------------------
-:Answer:
+:Answer: XPath query
+:Hint: THM is looking for keywords in the definition.
 
 The questions below are based on this command: wevtutil qe Application /c:3 /rd:true /f:text
 --------------------------------------------------------------------------------------------
-:Answer:
+:Answer: [No answer needed]
 
 What is the log name?
 ---------------------
-:Answer:
+:Answer: Application
+
+.. code-block:: PowerShell
+
+	wevtutil qe Application /c:3 /rd:true /f:text
 
 What is the /rd option for?
 ---------------------------
-:Answer:
+:Answer: Event read direction
+
+.. code-block:: PowerShell
+
+	wevtutil qe /?
 
 What is the /c option for?
 --------------------------
-:Answer:
+:Answer: Maximum number of events to read
 
+.. code-block:: PowerShell
 
+	wevtutil qe /?
 
 [Task 4] Get-WinEvent
 *********************
