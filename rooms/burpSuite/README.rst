@@ -110,6 +110,18 @@ Click on the FoxyProxy extension icon again and select 'Burp'
 =====================================================================================
 :Answer: [No answer needed]
 
+Installing cert.der in Firefox
+------------------------------
+
+	1. Go to "Preferences", search for the term 'certificates', and click on
+	"View Certificates" button.
+
+	2. In "Certificate Manager" window, click on "Import" button and select the
+	downloaded "cacert.der" file.
+
+	3. In the "Downloading Certificate" window prompt, select checkboxes:
+	'Trust this CA to identify websites' then click 'OK'.
+
 10. Click on 'View Certificates'
 ================================
 :Answer: [No answer needed]
