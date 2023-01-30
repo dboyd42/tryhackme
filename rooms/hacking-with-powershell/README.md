@@ -138,6 +138,48 @@ interesting-file.txt`
 Where-Object {$_.Name -Match ".*interesting*"}`
 >> **ANSWER:** C:\Program Files
 
+**2. Specify the contents of this file.**
+
+> Get-Content "C:\Program Files\interesting.txt.txt"
+>> **ANSWER:** notsointerestingcontent
+
+**3. How many cmdlets are installed on the system (only cmdlets, not functions
+and aliases)?**
+
+*Hint 1: `Get-Help Get-Command`<br>*
+*Hint 2: `Measure-Object`*
+
+> Get-Command -CommandType Cmdlet | Measure-Object -Line
+>> **ANSWER:** 6638
+
+**4. Get the MD5 hash of the interesting-file.txt**
+
+> Get-FileHash -Algorithm MD5 "C:\Program Files\interesting.txt.txt" | fl *
+>> **ANSWER:** 49A586A2A9456226F8A1B4CEC6FAB329
+
+**5. What is the command to get the current working directory?**
+
+> Get-Alias pwd
+>> **Answer:** Get-Location
+
+**6. Does the path "C:\Users\Administrator\Documents\Passwords" Exist(Y/N)?**
+
+> Get-ChildItem -Attributes Hidden
+>> **ANSWER:** N
+
+**7. What command would you use to make a request to a web server?**
+
+> Get-Alias curl; Get-Alias wget
+>> **ANSWER:** Invoke-WebRequest
+
+**8. Base64 decode the file b64.txt on Windows.**
+
+*Hint: It's an unnecessarily long command...*
+
+> Get-Content C:\Users\Administrator\Desktop\b64.txt |
+> %{[Text.Encoding]::UTF8.GetString([Convert]::FromBase64String($_))}
+>> **ANSWER:** ihopeyoudidthisonwindows
+
 ## Task 4: Enumeration
 
 ## Task 5: Basic Scripting Challenge
