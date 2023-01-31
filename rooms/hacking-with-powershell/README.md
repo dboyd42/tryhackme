@@ -182,6 +182,104 @@ and aliases)?**
 
 ## Task 4: Enumeration
 
+Post-Initial Access: Enumerate.
+
+Enumerate:
+
+- users
+- basic networking information
+- file permissions
+- registry permissions
+- scheduled and running tasks
+- insecure files
+
+### Q&A
+
+**1. How many users are there on the machine?**
+
+*Hint 1: Search for "user" commands: `Get-Command *get*user*`
+
+> Get-LocalUser | Measure-Object -Line
+>> **ANSWER:** 5
+
+**2. WHich local user does this
+SID(S-1-5-21-1394777289-3961777894-1791813945-501) belong to?**
+
+*Hint 1: `Get-Help Get-LocalUser`*
+
+> Get-LocalUser -SID S-1-5-21-1394777289-3961777894-1791813945-501
+>> **ANSWER:** Guest
+
+**3. How many users have their password required values set to False?**
+
+*Hint 1: List members from user obj: `Get-LocalUser | Get-Member`*
+
+> `Get-LocalUser | Where-Object { $_.PasswordRequired -eq 0 } | Measure-Object`
+>> **ANSWER:** 4
+
+*Bonus: #Show users' Names of those accounts that don't require a password:
+`Get-LocalUser | Select-Object -Property Name,PasswordRequired | Where-Object
+{ $_.PasswordRequired -eq 0 }
+
+**4. How many local groups exist?**
+
+>
+>> **ANSWER:**
+
+**5. What command did you use to get the IP address info?**
+
+>
+>> **ANSWER:**
+
+**6. How many ports are listed as listening?**
+
+>
+>> **ANSWER:**
+
+**7. What is the remote address of the local port listening on port 445?**
+
+>
+>> **ANSWER:**
+
+**8. How many patches have been applied?**
+
+>
+>> **ANSWER:**
+
+**9. iWhen was patch with ID KB4023834 installed?**
+
+>
+>> **ANSWER:**
+
+**10. Find the contents of a backup file.**
+
+>
+>> **ANSWER:**
+
+**11. Search for all files containing API_KEY**
+
+>
+>> **ANSWER:**
+
+**12. What command do you do to list all the running processes?**
+
+>
+>> **ANSWER:**
+
+**13. What is the path of the scheduled task called new-sched-task?**
+
+>
+>> **ANSWER:**
+
+**14. Who is the owner of the C:\**
+
+>
+>> **ANSWER:**
+
+
+
+
+
 ## Task 5: Basic Scripting Challenge
 
 ## Task 6: Intermediate Scripting
