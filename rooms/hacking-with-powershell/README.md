@@ -128,7 +128,7 @@ Get-Service | Where-Object -Property Status -eq Stopped
 **1. What is the location of the file "interesting-file.txt"?**
 
 `Get-ChildItem -Path C:\ -Recurse | Where-Object -Property Name -eq
-interesting-file.txt`
+"interesting-file.txt"`
 
 - :warning: The filename "interesting-file.txt" is not the full name.
 - :x: Operator `-Contains` did not find file
@@ -223,48 +223,60 @@ SID(S-1-5-21-1394777289-3961777894-1791813945-501) belong to?**
 
 **4. How many local groups exist?**
 
->
->> **ANSWER:**
+*Hint: `Get-Command "*group*"`
+
+> `Get-LocalGroup | Measure-Object`
+>> **ANSWER:** 24
 
 **5. What command did you use to get the IP address info?**
 
->
->> **ANSWER:**
+>> **ANSWER:** `Get-NetIPAddress`
 
 **6. How many ports are listed as listening?**
 
->
->> **ANSWER:**
+*Hint: The answer ***IS WRONG***.*
+
+> `Get-NetTCPConnection -State Listen | Measure-Object` [<<] 22
+>> **ANSWER:** 20
 
 **7. What is the remote address of the local port listening on port 445?**
 
->
->> **ANSWER:**
+> `Get-NetTCPConnection -LocalPort 445`
+>> **ANSWER:** ::
 
 **8. How many patches have been applied?**
 
->
->> **ANSWER:**
+> `Get-Hotfix | Measure-Object`
+>> **ANSWER:** 20
 
-**9. iWhen was patch with ID KB4023834 installed?**
+**9. When was patch with ID KB4023834 installed?**
 
->
->> **ANSWER:**
+> `Get-Hotfix | Where-Object {$_.HotFixID -EQ "KB4023834"} | Select-Object
+> -Property InstalledOn`
+>> **ANSWER:** 6/15/3017 12:00:00 AM
 
 **10. Find the contents of a backup file.**
 
->
->> **ANSWER:**
+*Hint: Most backup files contain `bak` in their filename.*
+
+> Method 1: `Get-ChildItem -Recurse -Path C:\ | Where-Object {$).Name -Match "bak"} |
+Get-Content`
+> Method 2: `Get-ChildItem -Recurse -Path C:\ -Include "*bak*" | Get-Content`
+>> **ANSWER:** backpassflag
 
 **11. Search for all files containing API_KEY**
 
->
->> **ANSWER:**
+***Note: At times, the search goes fast, other times, the code hangs.
+More experimentation is required.***
+
+> What works (shitty output): `Get-ChildItem -Recurse -Path C:\ | Select-String
+-Pattern "API_KEY" -CaseSensitive`
+>> **ANSWER:** fakekey123
 
 **12. What command do you do to list all the running processes?**
 
->
->> **ANSWER:**
+> `Get-Command "*process*"`
+>> **ANSWER:** `Get-Process`
 
 **13. What is the path of the scheduled task called new-sched-task?**
 
