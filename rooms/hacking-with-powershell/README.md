@@ -251,16 +251,16 @@ SID(S-1-5-21-1394777289-3961777894-1791813945-501) belong to?**
 
 **9. When was patch with ID KB4023834 installed?**
 
-> `Get-Hotfix | Where-Object {$_.HotFixID -EQ "KB4023834"} | Select-Object
-> -Property InstalledOn`
+> `Get-Hotfix | Where-Object {$_.HotFixID -EQ "KB4023834"} |
+   Select-Object -Property InstalledOn`
 >> **ANSWER:** 6/15/3017 12:00:00 AM
 
 **10. Find the contents of a backup file.**
 
 *Hint: Most backup files contain `bak` in their filename.*
 
-> Method 1: `Get-ChildItem -Recurse -Path C:\ | Where-Object {$).Name -Match "bak"} |
-Get-Content`
+> Method 1: `Get-ChildItem -Recurse -Path C:\ | Where-Object
+             {$_.Name -Match "bak"} | Get-Content`
 > Method 2: `Get-ChildItem -Recurse -Path C:\ -Include "*bak*" | Get-Content`
 >> **ANSWER:** backpassflag
 
@@ -292,4 +292,35 @@ More experimentation is required.***
 
 ## Task 5: Basic Scripting Challenge
 
+**1. What file contains the password?**
+
+``` powershell
+$emails = Get-ChildItem -Path C:\Users\Administrator\Desktop\emails
+          -Recurse -File
+ForEach( $email in $emails ){
+  Select-String -Path $email.FullName -Pattern ".password*"
+}
+```
+
+>> **ANSWER:** Doc3M
+
+**2. What is the password?**
+
+>> **ANSWER:** johnislegend99
+
+**3. What file contains an HTTPS link?**
+
+> Just change the pattern to `"*https*"` and rerun the script
+>> **ANSWER:** Doc2Mary
+
 ## Task 6: Intermediate Scripting
+
+**1. How many open ports did you find between 130 and 140 (includsive of those
+two)?**
+
+*Note: PWSH scripting (LOLBAS) to substitute for Nmap and Python.*
+
+### Port Scanner
+
+>
+>> **ANSWER:** xx
