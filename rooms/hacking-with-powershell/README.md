@@ -280,17 +280,15 @@ More experimentation is required.***
 
 **13. What is the path of the scheduled task called new-sched-task?**
 
->
->> **ANSWER:**
+> `Get-Command "*sched*" | Where-Object { $_.Source -notlike "AWS*" }`<br>
+> `Get-ScheduledTask | Get-Member`<br>
+> `Get-ScheduledTask | Where-Object { $_.TaskName -like "*new*" }
+>> **ANSWER:** `/`
 
 **14. Who is the owner of the C:\**
 
->
->> **ANSWER:**
-
-
-
-
+> `Get-ACL C:\`
+>> **ANSWER:** `NT SERVICE\TrustedInstaller`
 
 ## Task 5: Basic Scripting Challenge
 
