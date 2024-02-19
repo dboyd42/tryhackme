@@ -59,15 +59,13 @@ What will be your role as a Junior Security Analyst?
 
 <details>
   <summary>Expand for answer:</summary><br>
+  <strong>Triage Specialist</strong><br><br>
 
-  * Answer: <strong>Triage Specialist</strong>
-  * Explanation:
-
-| Tier   | Title                       | Role               |
-|--------|-----------------------------|--------------------|
-| Tier 1 | Junior Security Analyst     | Triage Specialist  |
-| Tier 2 | Security Operations Analyst | Incident Responder |
-| Tier 3 | Security Operations Analyst | Threat Hunter      |
+  | Tier   | Title                       | Role                    |
+  |--------|-----------------------------|-------------------------|
+  | Tier 1 | Junior Security Analyst     | ***Triage Specialist*** |
+  | Tier 2 | Security Operations Analyst | Incident Responder      |
+  | Tier 3 | Security Operations Analyst | Threat Hunter           |
 
 </details>
 
@@ -159,7 +157,7 @@ A SOC analyst works with various:
   * Data Extractions
 * OSINT
 
-**Today's Task**: Look for generated alerts from the tickets:exclamation:
+**Today's Task**: Look for generated alerts from the tickets :exclamation:
 
 1. *Inspect the alerts in your SIEM dashboard.*
 2. *Find the malicious IP address from the alerts.*
@@ -192,8 +190,6 @@ What was the malicious IP address in the alerts?
 <details>
   <summary>Expand for answer: </summary>
   <strong>221.181.185.159</strong>
-
-  *Provide the answer or solution to the question.*
 </details>
 
 #### Question 3
