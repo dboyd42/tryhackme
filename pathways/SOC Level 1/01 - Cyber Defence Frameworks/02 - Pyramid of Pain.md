@@ -5,6 +5,53 @@
 
 ## Table of Contents
 
+<!-- vim-markdown-toc GFM -->
+
+* [Task 1: Introduction](#task-1-introduction)
+* [Task 2: Hash Values (Trivial) - Blue](#task-2-hash-values-trivial---blue)
+  * [Code: Change a File's Hash in PowerShell (Windows)](#code-change-a-files-hash-in-powershell-windows)
+  * [Walkthrough: Task 2](#walkthrough-task-2)
+    * [Question 1](#question-1)
+* [Task 3: IP Addresses (Easy) - Dark Green](#task-3-ip-addresses-easy---dark-green)
+  * [Walkthrough: Task 3](#walkthrough-task-3)
+    * [Question 1](#question-1-1)
+    * [Question 2](#question-2)
+* [Task 4: Domain Names (Simple) - Light Green](#task-4-domain-names-simple---light-green)
+  * [Punycode Attack](#punycode-attack)
+  * [URL Shorteners](#url-shorteners)
+  * [Walkthrough: Task 4](#walkthrough-task-4)
+    * [Question 1](#question-1-2)
+    * [Question 2](#question-2-1)
+    * [Question 3](#question-3)
+    * [Question 4](#question-4)
+* [Task 5: Host Artifacts (Annoying) - Yellow (Part 1)](#task-5-host-artifacts-annoying---yellow-part-1)
+  * [Walkthrough: Task 5](#walkthrough-task-5)
+    * [Question 1](#question-1-3)
+    * [Question 2](#question-2-2)
+    * [Question 3](#question-3-1)
+    * [Question 4](#question-4-1)
+* [Task 6: Network Artifacts (Annoying) - Yellow (Part 2)](#task-6-network-artifacts-annoying---yellow-part-2)
+    * [Code: Filter User-Agent String via TShark](#code-filter-user-agent-string-via-tshark)
+  * [Walkthrough: Task 6](#walkthrough-task-6)
+    * [Question 1](#question-1-4)
+    * [Question 2](#question-2-3)
+* [Task 7: Tools (Challenging) - Orange](#task-7-tools-challenging---orange)
+* [Walkthrough: Task 7](#walkthrough-task-7)
+    * [Question 1](#question-1-5)
+    * [Question 2](#question-2-4)
+* [Task 8: TTPs (Tough) - Red](#task-8-ttps-tough---red)
+  * [Walkthrough: Task 8](#walkthrough-task-8)
+    * [Question 1](#question-1-6)
+    * [Question 2](#question-2-5)
+* [Task 9: Practical: The Pyramid of Pain](#task-9-practical-the-pyramid-of-pain)
+  * [Walkthrough: Task 9](#walkthrough-task-9)
+    * [Question 1](#question-1-7)
+* [Task 10: Conclusion](#task-10-conclusion)
+  * [Walkthrough: Task 10](#walkthrough-task-10)
+    * [Question 1](#question-1-8)
+
+<!-- vim-markdown-toc -->
+
 ## Task 1: Introduction
 
 pyramid of pain
@@ -36,7 +83,7 @@ MD5 (Message Digest)
 
 SHA-1 (Secure Hash Algorithm 1)
 : a hash function that outputs an 160-bit hash value/40-digit hex.
-  :x:*(Unsecure as of 2013)*
+  :x: *(Unsecure as of 2013)*
 
 SHA-2 (Secure Hash Algorithm 2)
 : a hash function that outputs varied-bit hash values. Most common is
@@ -340,7 +387,7 @@ Provide the alternative name for fuzzy hashes without the abbreviation
   <summary>Expand for answer: </summary>
   <strong>context triggered piecewise hashes</strong>
 
-  *Visit the [SSDeep Official Website] to find the complete explanation for 
+  *Visit the [SSDeep Official Website][ssdeep] to find the complete explanation for 
    fuzzy hashing!*
 </details>
 
@@ -408,16 +455,16 @@ Read the above.
 </details>
 
 <!-- References -->
-[pop]: https://www.attackiq.com/glossary/pyramid-of-pain/
 [akamai]: https://blogs.akamai.com/2017/10/digging-deeper-an-in-depth-analysis-of-a-fast-flux-network-part-one.html
-[t3_report]: https://assets.tryhackme.com/additional/pyramidofpain/task3-anyrun.pdf
-[punycode_def]: https://www.wandera.com/punycode-attacks/
-[t4_report]: https://app.any.run/tasks/a66178de-7596-4a05-945d-704dbf6b3b90
-[t5_report]: https://assets.tryhackme.com/additional/pyramidofpain/task5-report.pdf
-[t5_report2]: https://assets.tryhackme.com/additional/pyramidofpain/vtotal2.png
 [mb]: https://bazaar.abuse.ch/
+[mitre]: https://attack.mitre.org/
 [ms]: https://malshare.com/
+[pop]: https://www.attackiq.com/glossary/pyramid-of-pain/
+[pth]: https://www.beyondtrust.com/resources/glossary/pass-the-hash-pth-attack
+[punycode_def]: https://www.wandera.com/punycode-attacks/
 [sptdm]: https://tdm.socprime.com/
 [ssdeep]: https://ssdeep-project.github.io/ssdeep/index.html
-[pth]: https://www.beyondtrust.com/resources/glossary/pass-the-hash-pth-attack
-[mitre]: https://attack.mitre.org/
+[t3_report]: https://assets.tryhackme.com/additional/pyramidofpain/task3-anyrun.pdf
+[t4_report]: https://app.any.run/tasks/a66178de-7596-4a05-945d-704dbf6b3b90
+[t5_report2]: https://assets.tryhackme.com/additional/pyramidofpain/vtotal2.png
+[t5_report]: https://assets.tryhackme.com/additional/pyramidofpain/task5-report.pdf
